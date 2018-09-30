@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Control" representedClassName="Control" syncable="YES" codeGenerationType="class">
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="x" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="y" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="profiles" toMany="YES" deletionRule="Nullify" destinationEntity="Profile" inverseName="controls" inverseEntity="Profile" syncable="YES"/>
+    </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="class">
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="controls" toMany="YES" deletionRule="Cascade" destinationEntity="Control" inverseName="profiles" inverseEntity="Control" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Profile" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="Control" positionX="-63" positionY="-9" width="128" height="103"/>
+        <element name="Profile" positionX="-421.171875" positionY="-52.68359375" width="128" height="73"/>
     </elements>
 </model>

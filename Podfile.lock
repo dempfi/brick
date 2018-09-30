@@ -1,0 +1,24 @@
+PODS:
+  - CenteredCollectionView (2.0.0)
+  - SBrick-iOS (1.0.3)
+  - SnapKit (4.0.1)
+
+DEPENDENCIES:
+  - CenteredCollectionView
+  - SBrick-iOS
+  - SnapKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CenteredCollectionView
+    - SBrick-iOS
+    - SnapKit
+
+SPEC CHECKSUMS:
+  CenteredCollectionView: 6548b515645aea6ea89618f4b5ca090191dc8628
+  SBrick-iOS: 2e69411747509e8583a34ea6a812a3ce99e00706
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+
+PODFILE CHECKSUM: f27dd903d6c4f808cbb185f848154d661a23ed15
+
+COCOAPODS: 1.5.3

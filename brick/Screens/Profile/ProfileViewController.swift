@@ -1,9 +1,28 @@
-//
-//  ProfileViewController.swift
-//  brick
-//
-//  Created by Ike Ku on 9/29/18.
-//  Copyright © 2018 Ike Ku. All rights reserved.
-//
+import UIKit
+import SBrick
 
-import Foundation
+class ProfileViewController: UIViewController {
+  var profile: Profile!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    render()
+  }
+
+  private func render() {
+    view.backgroundColor = .black
+    profile.controls?.forEach { c in addControl(c as! Control) }
+  }
+  
+  private func addControl(_ control: Control) -> Void {
+    let position = CGRect(x: Int(control.x), y: Int(control.y), width: 150, height: 150)
+    
+    let stick = Stick()
+    stick.frame = position
+    stick.trackingHandler = { data in
+      print(data)
+    }
+    
+    view.addSubview(stick)
+  }
+}
