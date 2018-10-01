@@ -51,7 +51,7 @@ class ProfilesViewController: UIViewController {
     collectionView.dataSource = self
     collectionView.delegate = self
 
-    layout.itemSize = CGSize(width: 500, height: 300)
+    layout.itemSize = CGSize(width: 550, height: 280)
     layout.minimumLineSpacing = 20
   }
 

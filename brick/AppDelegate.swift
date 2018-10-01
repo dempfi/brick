@@ -5,17 +5,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    applyAppearances()
     window = UIWindow(frame: UIScreen.main.bounds)
-    window!.rootViewController = Navigation.controller
-    window!.backgroundColor = UIColor.black
+    window!.rootViewController = RootNavigation.controller
+    window!.backgroundColor = Colors.bg
     window!.makeKeyAndVisible()
 
-    Navigation.setupProfiles()
+    RootNavigation.setupProfiles()
     Store.initialize()
     return true
   }
   
   func applicationWillTerminate(_ application: UIApplication) {
     Store.saveContext()
+  }
+
+  private func applyAppearances() {
+    UINavigationBar.appearance().barTintColor = Colors.bg
+    UINavigationBar.appearance().isTranslucent = false
+    UINavigationBar.appearance().tintColor = Colors.accent
+    UINavigationBar.appearance().titleTextAttributes = [
+      NSAttributedString.Key.foregroundColor: UIColor.white
+    ]
   }
 }

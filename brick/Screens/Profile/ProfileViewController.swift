@@ -6,19 +6,24 @@ class ProfileViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .black
+    view.backgroundColor = Colors.bg
     profile.controls?.forEach { c in addControl(c as! Control) }
   }
 
   private func addControl(_ control: Control) -> Void {
-    let position = CGRect(x: Int(control.x), y: Int(control.y), width: 150, height: 150)
-    
-    let stick = Stick()
-    stick.frame = position
+    let stick = Stick(x: Int(control.x), y: Int(control.y), size: 150)
+    let slider = Slider(x: 500, y: 50, size: 210)
+
     stick.trackingHandler = { data in
       print(data)
     }
-    
+
+
+    slider.trackingHandler = { data in
+      print(data)
+    }
+
     view.addSubview(stick)
+    view.addSubview(slider)
   }
 }

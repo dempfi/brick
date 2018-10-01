@@ -4,15 +4,15 @@ import UIKit
 class ProfilesCellView: UICollectionViewCell {
   override init(frame: CGRect) {
     super.init(frame: frame)
-    customiseSelf()
+    addBackground()
   }
   
   required init?(coder aDecoder: NSCoder) {
      fatalError("init(coder:) has not been implemented")
   }
   
-  private func customiseSelf() {
-    backgroundColor = UIColor(red:0.13, green:0.15, blue:0.20, alpha:1.00)
-    layer.cornerRadius = 10
+  private func addBackground() {
+    let bg = UIImage(named: "CellBackground")
+    backgroundView = UIImageView(image: bg)
   }
 }

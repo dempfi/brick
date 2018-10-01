@@ -19,7 +19,11 @@ public class Stick: UIView {
   private var isTouched = false
   private var stickView = UIImageView(frame: .zero)
   private var displayLink: CADisplayLink?
-  
+
+  public convenience init(x: Int, y: Int, size: Int) {
+    self.init(frame: CGRect(x: x, y: y, width: size, height: size))
+  }
+
   override public init(frame: CGRect) {
     super.init(frame: frame)
     setup()
