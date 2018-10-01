@@ -35,7 +35,7 @@ class ProfilesViewController: UIViewController {
   
   private func setupNavigationBar() {
     title = "Profiles"
-    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addProfile))
     addButton.tintColor = UIColor(red:0.94, green:0.53, blue:0.31, alpha:1.00)
     
     guard let navbar = navigationController?.navigationBar else { return }
@@ -65,6 +65,13 @@ class ProfilesViewController: UIViewController {
 
     layout.itemSize = CGSize(width: 500, height: 300)
     layout.minimumLineSpacing = 20
+  }
+
+  @objc func addProfile(sender: UIButton) {
+    let addViewController = AddProfileViewController()
+    let addNavigationController = UINavigationController(rootViewController: addViewController)
+    navigationController?.modalTransitionStyle = .coverVertical
+    navigationController?.present(addNavigationController, animated: true, completion: nil)
   }
 }
 

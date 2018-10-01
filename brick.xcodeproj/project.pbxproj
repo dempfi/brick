@@ -71,7 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				748C3DBE216175A400DF0BCB /* AddProfile */,
-				74B46D162160219E0009EC29 /* Components */,
 				74E56BC3215FF0AE00B58258 /* Profile */,
 				74E56B99215FCED500B58258 /* Profiles */,
 			);
@@ -99,6 +98,7 @@
 		747AE296215F13440083F261 /* brick */ = {
 			isa = PBXGroup;
 			children = (
+				74B46D162160219E0009EC29 /* Components */,
 				7421408C215FB70C0052255C /* Screens */,
 				747AE297215F13440083F261 /* AppDelegate.swift */,
 				7421408B215FB6F40052255C /* Services */,
