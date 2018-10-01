@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class ProfileCellView: UICollectionViewCell {
+class ProfilesCellView: UICollectionViewCell {
   override init(frame: CGRect) {
     super.init(frame: frame)
     customiseSelf()

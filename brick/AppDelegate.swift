@@ -6,13 +6,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     window = UIWindow(frame: UIScreen.main.bounds)
+    window!.rootViewController = Navigation.controller
     window!.backgroundColor = UIColor.black
-    
-    let navbar = UINavigationController(rootViewController: ProfilesViewController())
-    
-    window!.rootViewController = navbar
     window!.makeKeyAndVisible()
-    
+
+    Navigation.setupProfiles()
     Store.initialize()
     return true
   }

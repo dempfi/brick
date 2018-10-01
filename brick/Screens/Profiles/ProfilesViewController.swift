@@ -7,7 +7,7 @@ class ProfilesViewController: UIViewController {
   let CELL_ID = "PROFILE_CELL"
   var collectionView: UICollectionView!
   let layout = CenteredCollectionViewFlowLayout()
-  
+
   lazy var profilesController = {
     return Store.profilesController(delegate: self)
   }()
@@ -26,23 +26,11 @@ class ProfilesViewController: UIViewController {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupNavigationBar()
-    setupCarousel()
-  }
-  
-  private func setupNavigationBar() {
     title = "Profiles"
-    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addProfile))
-    addButton.tintColor = UIColor(red:0.94, green:0.53, blue:0.31, alpha:1.00)
-    
-    guard let navbar = navigationController?.navigationBar else { return }
-    navbar.topItem?.rightBarButtonItem = addButton
-    navbar.prefersLargeTitles = true
-    navbar.isTranslucent = false
-    navbar.barStyle = .black
+    setupCarousel()
   }
   
   private func setupCarousel() {
@@ -57,7 +45,7 @@ class ProfilesViewController: UIViewController {
       make.bottom.equalTo(view.safeAreaLayoutGuide)
     }
 
-    collectionView.register(ProfileCellView.self, forCellWithReuseIdentifier: CELL_ID)
+    collectionView.register(ProfilesCellView.self, forCellWithReuseIdentifier: CELL_ID)
     collectionView.showsVerticalScrollIndicator = false
     collectionView.showsHorizontalScrollIndicator = false
     collectionView.dataSource = self

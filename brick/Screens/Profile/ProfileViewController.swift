@@ -6,14 +6,10 @@ class ProfileViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    render()
-  }
-
-  private func render() {
     view.backgroundColor = .black
     profile.controls?.forEach { c in addControl(c as! Control) }
   }
-  
+
   private func addControl(_ control: Control) -> Void {
     let position = CGRect(x: Int(control.x), y: Int(control.y), width: 150, height: 150)
     
