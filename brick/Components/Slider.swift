@@ -3,6 +3,7 @@ import SnapKit
 
 class Slider: UIView {
   public var trackingHandler: ((CGFloat) -> Void)?
+  public var color = Colors.silver
 
   private var isTouched = false
   private var handleView = UIImageView(frame: .zero)
@@ -45,11 +46,17 @@ class Slider: UIView {
       make.center.equalTo(self)
     }
 
-    let handleSize = CGSize(width: bounds.width, height: bounds.width)
     handleView.image = UIImage(named: "SliderHandle")
-    handleView.frame = CGRect(origin: .zero, size: handleSize)
+    handleView.frame = CGRect(origin: .zero, size: CGSize(width: bounds.width, height: bounds.width))
     handleView.contentMode = UIView.ContentMode.scaleAspectFill
     handleView.center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+    handleView.layer.cornerRadius = bounds.width / 2
+    handleView.layer.masksToBounds = false
+    handleView.layer.backgroundColor = color.cgColor
+    handleView.layer.shadowOffset = CGSize(width: 0, height: 7)
+    handleView.layer.shadowColor = UIColor.black.cgColor
+    handleView.layer.shadowRadius = 10
+    handleView.layer.shadowOpacity = 1
 
     if let superview = handleView.superview {
       superview.bringSubviewToFront(handleView)

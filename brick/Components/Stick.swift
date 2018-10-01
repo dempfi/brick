@@ -14,10 +14,11 @@ public struct StickData: CustomStringConvertible {
 
 public class Stick: UIView {
   public var trackingHandler: ((StickData) -> Void)?
-  
+  public var color = Colors.silver
+
   private var data = StickData()
   private var isTouched = false
-  private var stickView = UIImageView(frame: .zero)
+  private var handleView = UIImageView(frame: .zero)
   private var displayLink: CADisplayLink?
 
   public convenience init(x: Int, y: Int, size: Int) {
@@ -50,17 +51,25 @@ public class Stick: UIView {
     bgImage.image = UIImage(named: "StickBackground")
     bgImage.contentMode = UIView.ContentMode.scaleAspectFill
     insertSubview(bgImage, at: 0)
-    
-    let stickSize = CGSize(width: bounds.width / 1.5, height: bounds.height / 1.5)
-    stickView.image = UIImage(named: "StickHandle")
-    stickView.frame = CGRect(origin: .zero, size: stickSize)
-    stickView.contentMode = UIView.ContentMode.scaleAspectFill
-    stickView.center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
 
-    if let superview = stickView.superview {
-      superview.bringSubviewToFront(stickView)
+
+    let handleSize = floor(bounds.width / 1.5)
+    handleView.image = UIImage(named: "StickHandle")
+    handleView.frame = CGRect(origin: .zero, size: CGSize(width: handleSize, height: handleSize))
+    handleView.contentMode = UIView.ContentMode.scaleAspectFill
+    handleView.center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+    handleView.layer.cornerRadius = handleSize / 2
+    handleView.layer.masksToBounds = false
+    handleView.layer.backgroundColor = color.cgColor
+    handleView.layer.shadowOffset = CGSize(width: 0, height: 8)
+    handleView.layer.shadowColor = UIColor.black.cgColor
+    handleView.layer.shadowRadius = 15
+    handleView.layer.shadowOpacity = 1
+
+    if let superview = handleView.superview {
+      superview.bringSubviewToFront(handleView)
     } else {
-      addSubview(stickView)
+      addSubview(handleView)
     }
   }
   
@@ -80,17 +89,17 @@ public class Stick: UIView {
     let boundsSize = bounds.width / 2
     
     if magV <= boundsSize {
-      stickView.center = CGPoint(x: distance.x + bounds.width / 2, y: distance.y + bounds.height / 2)
+      handleView.center = CGPoint(x: distance.x + bounds.width / 2, y: distance.y + bounds.height / 2)
     } else {
       let aX = distance.x / magV * boundsSize
       let aY = distance.y / magV * boundsSize
-      stickView.center = CGPoint(x: aX + boundsSize, y: aY + boundsSize)
+      handleView.center = CGPoint(x: aX + boundsSize, y: aY + boundsSize)
     }
     
     let x = clamp(distance.x, lower: -bounds.width / 2, upper: bounds.width / 2) / (bounds.width / 2)
     let y = clamp(distance.y, lower: -bounds.height / 2, upper: bounds.height / 2) / (bounds.height / 2)
     
-    data = StickData(velocity: CGPoint(x: x, y: y), angle: -atan2(x, y) + CGFloat(Double.pi))
+    data = StickData(velocity: CGPoint(x: x, y: -y), angle: -atan2(x, y) + CGFloat(Double.pi))
   }
   
   public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -108,7 +117,7 @@ public class Stick: UIView {
     trackingHandler?(data)
     
     UIView.animate(withDuration: 0.25) {
-      self.stickView.center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
+      self.handleView.center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
     }
   }
   
