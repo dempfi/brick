@@ -12,6 +12,7 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
     view.backgroundColor = Colors.bg
     setupSubviews()
     setupPanRecognizer()
+    setupGrid()
   }
 
   private func setupSubviews() {
@@ -81,5 +82,12 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
     default:
       self.activeView = nil
     }
+  }
+
+  private func setupGrid() {
+    let grid = UIImageView(image: UIImage(named: "Grid"))
+    grid.contentMode = .center
+    grid.center = view.center
+    view.insertSubview(grid, at: 0)
   }
 }
