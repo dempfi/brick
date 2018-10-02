@@ -10,8 +10,12 @@ class Slider: UIView {
   private var displayLink: CADisplayLink?
   private var data: CGFloat = 0.0
 
-  public convenience init(x: Int, y: Int, size: Int) {
-    self.init(frame: CGRect(x: x, y: y, width: size / 3, height: size))
+  public convenience init() {
+    self.init(at: .zero)
+  }
+
+  public convenience init(at: CGPoint) {
+    self.init(frame: CGRect(origin: at, size: CGSize(width: 70, height: 210)))
   }
 
   override public init(frame: CGRect) {
@@ -85,7 +89,7 @@ class Slider: UIView {
     }
 
     let unboundData = -distance / (bounds.height / 2)
-    data = abs(unboundData) > 1 ? max(min(unboundData, -1), 1) : unboundData
+    data = abs(unboundData) > 1 ? min(max(unboundData, -1), 1) : unboundData
   }
 
   public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

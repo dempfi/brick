@@ -21,8 +21,12 @@ public class Stick: UIView {
   private var handleView = UIImageView(frame: .zero)
   private var displayLink: CADisplayLink?
 
-  public convenience init(x: Int, y: Int, size: Int) {
-    self.init(frame: CGRect(x: x, y: y, width: size, height: size))
+  public convenience init() {
+    self.init(at: .zero)
+  }
+
+  public convenience init(at: CGPoint) {
+    self.init(frame: CGRect(origin: at, size: CGSize(width: 150, height: 150)))
   }
 
   override public init(frame: CGRect) {

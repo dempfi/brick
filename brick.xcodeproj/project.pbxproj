@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		74256E882162336600A464CB /* AddProfileNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74256E872162336600A464CB /* AddProfileNavigation.swift */; };
 		74256E8A21623AF600A464CB /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74256E8921623AF600A464CB /* Slider.swift */; };
+		745D9B3E2163F6F900ED1127 /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D9B3D2163F6F900ED1127 /* Trash.swift */; };
 		747AE298215F13440083F261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747AE297215F13440083F261 /* AppDelegate.swift */; };
 		747AE29A215F13440083F261 /* ProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747AE299215F13440083F261 /* ProfilesViewController.swift */; };
 		747AE29F215F13450083F261 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747AE29E215F13450083F261 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		0CC5F1C830997F299119BB99 /* Pods-brick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-brick.debug.xcconfig"; path = "Pods/Target Support Files/Pods-brick/Pods-brick.debug.xcconfig"; sourceTree = "<group>"; };
 		74256E872162336600A464CB /* AddProfileNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileNavigation.swift; sourceTree = "<group>"; };
 		74256E8921623AF600A464CB /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
+		745D9B3D2163F6F900ED1127 /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
 		747AE294215F13440083F261 /* brick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = brick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747AE297215F13440083F261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		747AE299215F13440083F261 /* ProfilesViewController.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ProfilesViewController.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
@@ -124,6 +126,8 @@
 		748C3DBE216175A400DF0BCB /* AddProfile */ = {
 			isa = PBXGroup;
 			children = (
+				749290E221630B93001B1048 /* ControlSelector.swift */,
+				745D9B3D2163F6F900ED1127 /* Trash.swift */,
 				748C3DBC2161746D00DF0BCB /* AddProfileViewController.swift */,
 				74256E872162336600A464CB /* AddProfileNavigation.swift */,
 			);
@@ -135,7 +139,6 @@
 			children = (
 				74B46D17216021E00009EC29 /* Stick.swift */,
 				74256E8921623AF600A464CB /* Slider.swift */,
-				749290E221630B93001B1048 /* ControlSelector.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				74CF449F2161B5F100CD0481 /* RootNavigation.swift in Sources */,
 				74E56B9F215FE16000B58258 /* Model.xcdatamodeld in Sources */,
 				74E56BA1215FE22300B58258 /* Store.swift in Sources */,
+				745D9B3E2163F6F900ED1127 /* Trash.swift in Sources */,
 				748C3DBD2161746D00DF0BCB /* AddProfileViewController.swift in Sources */,
 				74256E882162336600A464CB /* AddProfileNavigation.swift in Sources */,
 				74B46D18216021E00009EC29 /* Stick.swift in Sources */,
