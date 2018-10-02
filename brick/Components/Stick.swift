@@ -47,11 +47,16 @@ public class Stick: UIView {
   }
   
   public override func draw(_ rect: CGRect) {
-    let bgImage = UIImageView(frame: bounds)
-    bgImage.image = UIImage(named: "StickBackground")
-    bgImage.contentMode = UIView.ContentMode.scaleAspectFill
-    insertSubview(bgImage, at: 0)
-
+    let background = UIImageView(frame: bounds)
+    background.image = UIImage(named: "StickBackground")
+    background.contentMode = UIView.ContentMode.scaleAspectFill
+    insertSubview(background, at: 0)
+    layer.cornerRadius = bounds.width / 2
+    layer.masksToBounds = false
+    layer.shadowOffset = CGSize(width: 0, height: 0)
+    layer.shadowColor = UIColor.white.cgColor
+    layer.shadowOpacity = 0.2
+    layer.shadowRadius = 20
 
     let handleSize = floor(bounds.width / 1.5)
     handleView.image = UIImage(named: "StickHandle")
@@ -61,9 +66,9 @@ public class Stick: UIView {
     handleView.layer.cornerRadius = handleSize / 2
     handleView.layer.masksToBounds = false
     handleView.layer.backgroundColor = color.cgColor
-    handleView.layer.shadowOffset = CGSize(width: 0, height: 8)
+    handleView.layer.shadowOffset = CGSize(width: 0, height: 20)
     handleView.layer.shadowColor = UIColor.black.cgColor
-    handleView.layer.shadowRadius = 15
+    handleView.layer.shadowRadius = 10
     handleView.layer.shadowOpacity = 1
 
     if let superview = handleView.superview {
