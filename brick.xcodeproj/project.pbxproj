@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		74256E882162336600A464CB /* AddProfileNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74256E872162336600A464CB /* AddProfileNavigation.swift */; };
 		74256E8A21623AF600A464CB /* VerticalSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74256E8921623AF600A464CB /* VerticalSliderView.swift */; };
-		745D9B3E2163F6F900ED1127 /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D9B3D2163F6F900ED1127 /* Trash.swift */; };
+		745D9B3E2163F6F900ED1127 /* RecycleBinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D9B3D2163F6F900ED1127 /* RecycleBinView.swift */; };
 		747AE298215F13440083F261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747AE297215F13440083F261 /* AppDelegate.swift */; };
 		747AE29A215F13440083F261 /* ProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747AE299215F13440083F261 /* ProfilesViewController.swift */; };
 		747AE29F215F13450083F261 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747AE29E215F13450083F261 /* Assets.xcassets */; };
 		748C3DBD2161746D00DF0BCB /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C3DBC2161746D00DF0BCB /* AddProfileViewController.swift */; };
-		749290E321630B93001B1048 /* ControlSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749290E221630B93001B1048 /* ControlSelector.swift */; };
+		749290E321630B93001B1048 /* ControlSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749290E221630B93001B1048 /* ControlSelectorView.swift */; };
 		74A36DFF2161CB4C00E03650 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A36DFE2161CB4C00E03650 /* Colors.swift */; };
 		74B46D18216021E00009EC29 /* StickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B46D17216021E00009EC29 /* StickView.swift */; };
 		74CF449F2161B5F100CD0481 /* RootNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF449E2161B5F100CD0481 /* RootNavigation.swift */; };
@@ -32,14 +32,14 @@
 		0CC5F1C830997F299119BB99 /* Pods-brick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-brick.debug.xcconfig"; path = "Pods/Target Support Files/Pods-brick/Pods-brick.debug.xcconfig"; sourceTree = "<group>"; };
 		74256E872162336600A464CB /* AddProfileNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileNavigation.swift; sourceTree = "<group>"; };
 		74256E8921623AF600A464CB /* VerticalSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSliderView.swift; sourceTree = "<group>"; };
-		745D9B3D2163F6F900ED1127 /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
+		745D9B3D2163F6F900ED1127 /* RecycleBinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleBinView.swift; sourceTree = "<group>"; };
 		747AE294215F13440083F261 /* brick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = brick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747AE297215F13440083F261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		747AE299215F13440083F261 /* ProfilesViewController.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ProfilesViewController.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		747AE29E215F13450083F261 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		747AE2A3215F13450083F261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		748C3DBC2161746D00DF0BCB /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
-		749290E221630B93001B1048 /* ControlSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlSelector.swift; sourceTree = "<group>"; };
+		749290E221630B93001B1048 /* ControlSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlSelectorView.swift; sourceTree = "<group>"; };
 		74A36DFE2161CB4C00E03650 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		74B46D17216021E00009EC29 /* StickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickView.swift; sourceTree = "<group>"; };
 		74CF449E2161B5F100CD0481 /* RootNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigation.swift; sourceTree = "<group>"; };
@@ -128,8 +128,8 @@
 		748C3DBE216175A400DF0BCB /* AddProfile */ = {
 			isa = PBXGroup;
 			children = (
-				749290E221630B93001B1048 /* ControlSelector.swift */,
-				745D9B3D2163F6F900ED1127 /* Trash.swift */,
+				749290E221630B93001B1048 /* ControlSelectorView.swift */,
+				745D9B3D2163F6F900ED1127 /* RecycleBinView.swift */,
 				748C3DBC2161746D00DF0BCB /* AddProfileViewController.swift */,
 				74256E872162336600A464CB /* AddProfileNavigation.swift */,
 			);
@@ -300,12 +300,12 @@
 				74CF449F2161B5F100CD0481 /* RootNavigation.swift in Sources */,
 				74E56B9F215FE16000B58258 /* Model.xcdatamodeld in Sources */,
 				74E56BA1215FE22300B58258 /* Store.swift in Sources */,
-				745D9B3E2163F6F900ED1127 /* Trash.swift in Sources */,
+				745D9B3E2163F6F900ED1127 /* RecycleBinView.swift in Sources */,
 				748C3DBD2161746D00DF0BCB /* AddProfileViewController.swift in Sources */,
 				74256E882162336600A464CB /* AddProfileNavigation.swift in Sources */,
 				74B46D18216021E00009EC29 /* StickView.swift in Sources */,
 				74E56BC5215FF92200B58258 /* ProfileViewController.swift in Sources */,
-				749290E321630B93001B1048 /* ControlSelector.swift in Sources */,
+				749290E321630B93001B1048 /* ControlSelectorView.swift in Sources */,
 				74FF401E215F1679009C6E3D /* Bricks.swift in Sources */,
 				74EA6E4921644A5200A3D973 /* HorizontalSliderView.swift in Sources */,
 				747AE298215F13440083F261 /* AppDelegate.swift in Sources */,

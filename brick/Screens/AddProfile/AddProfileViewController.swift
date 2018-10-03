@@ -3,8 +3,8 @@ import SnapKit
 
 class AddProfileViewController: UIViewController, UITextFieldDelegate {
   private var controls = Set<UIView>()
-  private let selector = ControlSelector()
-  private let trash = Trash()
+  private let selector = ControlSelectorView()
+  private let recycleBin = RecycleBinView()
   private var activeView: UIView?
 
   override func viewDidLoad() {
@@ -28,44 +28,38 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
   private func setupSubviews() {
     view.addSubview(selector)
     selector.handler = self.onSelect
-    selector.snp.makeConstraints { (make) -> Void in
+    selector.snp.makeConstraints { make in
       make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-10)
       make.centerX.equalTo(view.center)
     }
 
-    view.addSubview(trash)
-    trash.snp.makeConstraints { (make) -> Void in
-      make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-10)
+    view.addSubview(recycleBin)
+    recycleBin.snp.makeConstraints { make in
       make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-10)
+      make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-10)
     }
 
-    let grid = UIImageView(image: UIImage(named: "Grid"))
-    grid.contentMode = .center
-    grid.center = view.center
+    let grid = UIView()
     view.insertSubview(grid, at: 0)
+    grid.backgroundColor = UIColor(patternImage: UIImage(named: "GridPattern")!)
+    grid.layer.isOpaque = false
+    grid.snp.makeConstraints { make in
+      make.center.equalTo(view)
+      make.height.equalTo(view)
+      make.width.equalTo(view)
+    }
   }
 
   private func onSelect(_ type: ControlType) {
+    var subview: UIView!
     switch type {
-    case .stick:
-      let stick = StickView()
-      stick.center = view.center
-      self.controls.insert(stick)
-      view.insertSubview(stick, belowSubview: selector)
-
-    case .sliderHorizontal:
-      let slider = HorizontalSliderView()
-      slider.center = view.center
-      self.controls.insert(slider)
-      view.insertSubview(slider, belowSubview: selector)
-
-    case .sliderVertical:
-      let slider = VerticalSliderView()
-      slider.center = view.center
-      self.controls.insert(slider)
-      view.insertSubview(slider, belowSubview: selector)
-
+    case .stick: subview = StickView()
+    case .sliderHorizontal: subview = HorizontalSliderView()
+    case .sliderVertical: subview = VerticalSliderView()
     }
+    subview.center = view.center
+    self.controls.insert(subview)
+    view.insertSubview(subview, belowSubview: selector)
   }
 
   private func setupPanRecognizer() {
@@ -81,7 +75,7 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
     case .began:
       guard let target = view.hitTest(p, with: nil) else { return }
       if !controls.contains(target) { return }
-      trash.isHidden = false
+      recycleBin.isHidden = false
       activeView = target
     case .changed:
       guard let subview = self.activeView else { return }
@@ -89,8 +83,8 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
       subview.center.y = p.y - (p.y.truncatingRemainder(dividingBy: 10))
     case .ended:
       let target = view.hitTest(p, with: nil)
-      trash.isHidden = true
-      if target == trash && activeView != nil {
+      recycleBin.isHidden = true
+      if target == recycleBin && activeView != nil {
         controls.remove(activeView!)
         activeView!.removeFromSuperview()
       }

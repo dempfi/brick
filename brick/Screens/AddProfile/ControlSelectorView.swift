@@ -6,7 +6,7 @@ enum ControlType {
   case sliderVertical
 }
 
-class ControlSelector: UIView {
+class ControlSelectorView: UIView {
   public var handler: ((ControlType) -> Void)?
 
   override open var intrinsicContentSize: CGSize {

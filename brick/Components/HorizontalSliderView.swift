@@ -23,7 +23,7 @@ class HorizontalSliderView: UIView {
     insertSubview(background, at: 0)
     background.image = UIImage(named: "HorizontalSliderBackground")
     background.contentMode = UIView.ContentMode.scaleAspectFill
-    background.snp.makeConstraints { (make) -> Void in
+    background.snp.makeConstraints { make in
       make.height.equalTo(self).dividedBy(3)
       make.width.equalTo(self)
       make.center.equalTo(self)
