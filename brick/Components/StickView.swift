@@ -12,42 +12,21 @@ public struct StickData: CustomStringConvertible {
   }
 }
 
-public class Stick: UIView {
-  public var trackingHandler: ((StickData) -> Void)?
+public class StickView: UIView {
+  public var handler: ((StickData) -> Void)?
   public var color = Colors.silver
-
-  private var data = StickData()
-  private var isTouched = false
   private var handleView = UIImageView(frame: .zero)
-  private var displayLink: CADisplayLink?
 
   public convenience init() {
     self.init(at: .zero)
   }
 
-  public convenience init(at: CGPoint) {
-    self.init(frame: CGRect(origin: at, size: CGSize(width: 150, height: 150)))
-  }
-
-  override public init(frame: CGRect) {
-    super.init(frame: frame)
-    setup()
+  public init(at: CGPoint) {
+    super.init(frame: CGRect(origin: at, size: CGSize(width: 150, height: 150)))
   }
   
   public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    setup()
-  }
-  
-  private func setup() {
-    displayLink = CADisplayLink(target: self, selector: #selector(listen))
-    displayLink?.add(to: .current, forMode: RunLoop.Mode.common)
-  }
-  
-  @objc public func listen() {
-    if isTouched {
-      trackingHandler?(data)
-    }
   }
   
   public override func draw(_ rect: CGRect) {
@@ -83,7 +62,6 @@ public class Stick: UIView {
   }
   
   public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    isTouched = true
     UIView.animate(withDuration: 0.1) {
       self.touchesMoved(touches, with: event)
     }
@@ -108,23 +86,18 @@ public class Stick: UIView {
     let x = clamp(distance.x, lower: -bounds.width / 2, upper: bounds.width / 2) / (bounds.width / 2)
     let y = clamp(distance.y, lower: -bounds.height / 2, upper: bounds.height / 2) / (bounds.height / 2)
     
-    data = StickData(velocity: CGPoint(x: x, y: -y), angle: -atan2(x, y) + CGFloat(Double.pi))
+    handler?(StickData(velocity: CGPoint(x: x, y: -y), angle: -atan2(x, y) + CGFloat(Double.pi)))
   }
   
   public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    isTouched = false
     reset()
   }
   
   public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-    isTouched = false
     reset()
   }
   
   private func reset() {
-    data = StickData()
-    trackingHandler?(data)
-    
     UIView.animate(withDuration: 0.25) {
       self.handleView.center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
     }

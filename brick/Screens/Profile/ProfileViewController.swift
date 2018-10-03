@@ -11,15 +11,15 @@ class ProfileViewController: UIViewController {
   }
 
   private func addControl(_ control: Control) -> Void {
-    let stick = Stick(at: CGPoint(x: Int(control.x), y: Int(control.y)))
-    let slider = Slider(at: CGPoint(x: 500, y: 0))
+    let stick = StickView(at: CGPoint(x: Int(control.x), y: Int(control.y)))
+    let slider = SliderView(at: CGPoint(x: 500, y: 0))
 
-    stick.trackingHandler = { data in
+    stick.handler = { data in
       print(data)
     }
 
 
-    slider.trackingHandler = { data in
+    slider.handler = { data in
       print(data)
     }
 

@@ -1,42 +1,21 @@
 import UIKit
 import SnapKit
 
-class Slider: UIView {
-  public var trackingHandler: ((CGFloat) -> Void)?
+class SliderView: UIView {
+  public var handler: ((CGFloat) -> Void)?
   public var color = Colors.silver
-
-  private var isTouched = false
   private var handleView = UIImageView(frame: .zero)
-  private var displayLink: CADisplayLink?
-  private var data: CGFloat = 0.0
 
   public convenience init() {
     self.init(at: .zero)
   }
 
-  public convenience init(at: CGPoint) {
-    self.init(frame: CGRect(origin: at, size: CGSize(width: 70, height: 210)))
-  }
-
-  override public init(frame: CGRect) {
-    super.init(frame: frame)
-    setup()
+  public init(at: CGPoint) {
+    super.init(frame: CGRect(origin: at, size: CGSize(width: 70, height: 210)))
   }
 
   public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    setup()
-  }
-
-  private func setup() {
-    displayLink = CADisplayLink(target: self, selector: #selector(listen))
-    displayLink?.add(to: .current, forMode: RunLoop.Mode.common)
-  }
-
-  @objc public func listen() {
-    if isTouched {
-      trackingHandler?(data)
-    }
   }
 
   public override func draw(_ rect: CGRect) {
@@ -70,7 +49,6 @@ class Slider: UIView {
   }
 
   public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    isTouched = true
     UIView.animate(withDuration: 0.1) {
       self.touchesMoved(touches, with: event)
     }
@@ -89,22 +67,18 @@ class Slider: UIView {
     }
 
     let unboundData = -distance / (bounds.height / 2)
-    data = abs(unboundData) > 1 ? min(max(unboundData, -1), 1) : unboundData
+    handler?(abs(unboundData) > 1 ? min(max(unboundData, -1), 1) : unboundData)
   }
 
   public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    isTouched = false
     reset()
   }
 
   public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-    isTouched = false
     reset()
   }
 
   private func reset() {
-    trackingHandler?(data)
-
     UIView.animate(withDuration: 0.25) {
       self.handleView.center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
     }

@@ -33,19 +33,19 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
   private func onSelect(_ type: ControlType) {
     switch type {
     case .stick:
-      let stick = Stick()
+      let stick = StickView()
       stick.center = view.center
       self.controls.insert(stick)
       view.insertSubview(stick, belowSubview: selector)
 
     case .sliderHorizontal:
-      let slider = Slider()
+      let slider = SliderView()
       slider.center = view.center
       self.controls.insert(slider)
       view.insertSubview(slider, belowSubview: selector)
 
     case .sliderVertical:
-      let slider = Slider()
+      let slider = SliderView()
       slider.center = view.center
       self.controls.insert(slider)
       view.insertSubview(slider, belowSubview: selector)
