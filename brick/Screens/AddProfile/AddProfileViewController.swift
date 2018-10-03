@@ -12,7 +12,17 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
     view.backgroundColor = Colors.bg
     setupSubviews()
     setupPanRecognizer()
-    setupGrid()
+    addDoneButton()
+  }
+
+  private func addDoneButton() {
+    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onDone))
+    AddProfileNavigation.controller.navigationBar.topItem?.rightBarButtonItem = doneButton
+  }
+
+  @objc private func onDone() {
+    let collections = controls.map { subview in subview.frame.origin }
+    print(collections)
   }
 
   private func setupSubviews() {
@@ -28,6 +38,11 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
       make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-10)
       make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-10)
     }
+
+    let grid = UIImageView(image: UIImage(named: "Grid"))
+    grid.contentMode = .center
+    grid.center = view.center
+    view.insertSubview(grid, at: 0)
   }
 
   private func onSelect(_ type: ControlType) {
@@ -39,13 +54,13 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
       view.insertSubview(stick, belowSubview: selector)
 
     case .sliderHorizontal:
-      let slider = SliderView()
+      let slider = HorizontalSliderView()
       slider.center = view.center
       self.controls.insert(slider)
       view.insertSubview(slider, belowSubview: selector)
 
     case .sliderVertical:
-      let slider = SliderView()
+      let slider = VerticalSliderView()
       slider.center = view.center
       self.controls.insert(slider)
       view.insertSubview(slider, belowSubview: selector)
@@ -70,8 +85,8 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
       activeView = target
     case .changed:
       guard let subview = self.activeView else { return }
-      subview.center.x = p.x - (p.x.truncatingRemainder(dividingBy: 20))
-      subview.center.y = p.y - (p.y.truncatingRemainder(dividingBy: 20))
+      subview.center.x = p.x - (p.x.truncatingRemainder(dividingBy: 10))
+      subview.center.y = p.y - (p.y.truncatingRemainder(dividingBy: 10))
     case .ended:
       let target = view.hitTest(p, with: nil)
       trash.isHidden = true
@@ -82,12 +97,5 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
     default:
       self.activeView = nil
     }
-  }
-
-  private func setupGrid() {
-    let grid = UIImageView(image: UIImage(named: "Grid"))
-    grid.contentMode = .center
-    grid.center = view.center
-    view.insertSubview(grid, at: 0)
   }
 }

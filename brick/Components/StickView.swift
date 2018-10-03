@@ -34,12 +34,6 @@ public class StickView: UIView {
     background.image = UIImage(named: "StickBackground")
     background.contentMode = UIView.ContentMode.scaleAspectFill
     insertSubview(background, at: 0)
-    layer.cornerRadius = bounds.width / 2
-    layer.masksToBounds = false
-    layer.shadowOffset = CGSize(width: 0, height: 0)
-    layer.shadowColor = UIColor.white.cgColor
-    layer.shadowOpacity = 0.2
-    layer.shadowRadius = 20
 
     let handleSize = floor(bounds.width / 1.5)
     handleView.image = UIImage(named: "StickHandle")
@@ -68,6 +62,7 @@ public class StickView: UIView {
   }
   
   public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    if handler == nil { return }
     guard let touch = touches.first else { return }
     
     let location = touch.location(in: self)

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		74256E882162336600A464CB /* AddProfileNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74256E872162336600A464CB /* AddProfileNavigation.swift */; };
-		74256E8A21623AF600A464CB /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74256E8921623AF600A464CB /* SliderView.swift */; };
+		74256E8A21623AF600A464CB /* VerticalSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74256E8921623AF600A464CB /* VerticalSliderView.swift */; };
 		745D9B3E2163F6F900ED1127 /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D9B3D2163F6F900ED1127 /* Trash.swift */; };
 		747AE298215F13440083F261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747AE297215F13440083F261 /* AppDelegate.swift */; };
 		747AE29A215F13440083F261 /* ProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747AE299215F13440083F261 /* ProfilesViewController.swift */; };
@@ -22,6 +22,7 @@
 		74E56B9F215FE16000B58258 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74E56B9D215FE16000B58258 /* Model.xcdatamodeld */; };
 		74E56BA1215FE22300B58258 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E56BA0215FE22300B58258 /* Store.swift */; };
 		74E56BC5215FF92200B58258 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E56BC4215FF92200B58258 /* ProfileViewController.swift */; };
+		74EA6E4921644A5200A3D973 /* HorizontalSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EA6E4821644A5200A3D973 /* HorizontalSliderView.swift */; };
 		74FF401E215F1679009C6E3D /* Bricks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FF401D215F1679009C6E3D /* Bricks.swift */; };
 		75AD71DC337443B2ACE15DF7 /* Pods_brick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC8834258B5834575FAEA39 /* Pods_brick.framework */; };
 /* End PBXBuildFile section */
@@ -30,7 +31,7 @@
 		0BC8834258B5834575FAEA39 /* Pods_brick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_brick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC5F1C830997F299119BB99 /* Pods-brick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-brick.debug.xcconfig"; path = "Pods/Target Support Files/Pods-brick/Pods-brick.debug.xcconfig"; sourceTree = "<group>"; };
 		74256E872162336600A464CB /* AddProfileNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileNavigation.swift; sourceTree = "<group>"; };
-		74256E8921623AF600A464CB /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		74256E8921623AF600A464CB /* VerticalSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSliderView.swift; sourceTree = "<group>"; };
 		745D9B3D2163F6F900ED1127 /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
 		747AE294215F13440083F261 /* brick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = brick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747AE297215F13440083F261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +47,7 @@
 		74E56B9E215FE16000B58258 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		74E56BA0215FE22300B58258 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		74E56BC4215FF92200B58258 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		74EA6E4821644A5200A3D973 /* HorizontalSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSliderView.swift; sourceTree = "<group>"; };
 		74FF401D215F1679009C6E3D /* Bricks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bricks.swift; sourceTree = "<group>"; };
 		B5FE2CFD07D044CB4CDEF1EE /* Pods-brick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-brick.release.xcconfig"; path = "Pods/Target Support Files/Pods-brick/Pods-brick.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,7 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				74B46D17216021E00009EC29 /* StickView.swift */,
-				74256E8921623AF600A464CB /* SliderView.swift */,
+				74256E8921623AF600A464CB /* VerticalSliderView.swift */,
+				74EA6E4821644A5200A3D973 /* HorizontalSliderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -304,8 +307,9 @@
 				74E56BC5215FF92200B58258 /* ProfileViewController.swift in Sources */,
 				749290E321630B93001B1048 /* ControlSelector.swift in Sources */,
 				74FF401E215F1679009C6E3D /* Bricks.swift in Sources */,
+				74EA6E4921644A5200A3D973 /* HorizontalSliderView.swift in Sources */,
 				747AE298215F13440083F261 /* AppDelegate.swift in Sources */,
-				74256E8A21623AF600A464CB /* SliderView.swift in Sources */,
+				74256E8A21623AF600A464CB /* VerticalSliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

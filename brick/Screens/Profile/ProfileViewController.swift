@@ -12,18 +12,23 @@ class ProfileViewController: UIViewController {
 
   private func addControl(_ control: Control) -> Void {
     let stick = StickView(at: CGPoint(x: Int(control.x), y: Int(control.y)))
-    let slider = SliderView(at: CGPoint(x: 500, y: 0))
+    let verticalSlider = VerticalSliderView(at: CGPoint(x: 300, y: 50))
+    let horizontalSlider = HorizontalSliderView(at: CGPoint(x: 400, y: 50))
 
     stick.handler = { data in
       print(data)
     }
 
+    verticalSlider.handler = { data in
+      print(data)
+    }
 
-    slider.handler = { data in
+    horizontalSlider.handler = { data in
       print(data)
     }
 
     view.addSubview(stick)
-    view.addSubview(slider)
+    view.addSubview(verticalSlider)
+    view.addSubview(horizontalSlider)
   }
 }

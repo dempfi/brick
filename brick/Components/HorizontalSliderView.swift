@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class SliderView: UIView {
+class HorizontalSliderView: UIView {
   public var handler: ((CGFloat) -> Void)?
   public var color = Colors.silver
   private var handleView = UIImageView(frame: .zero)
@@ -11,7 +11,7 @@ class SliderView: UIView {
   }
 
   public init(at: CGPoint) {
-    super.init(frame: CGRect(origin: at, size: CGSize(width: 70, height: 210)))
+    super.init(frame: CGRect(origin: at, size: CGSize(width: 210, height: 70)))
   }
 
   public required init?(coder aDecoder: NSCoder) {
@@ -21,19 +21,19 @@ class SliderView: UIView {
   public override func draw(_ rect: CGRect) {
     let background = UIImageView()
     insertSubview(background, at: 0)
-    background.image = UIImage(named: "SliderBackground")
+    background.image = UIImage(named: "HorizontalSliderBackground")
     background.contentMode = UIView.ContentMode.scaleAspectFill
     background.snp.makeConstraints { (make) -> Void in
-      make.height.equalTo(self)
-      make.width.equalTo(self).dividedBy(3)
+      make.height.equalTo(self).dividedBy(3)
+      make.width.equalTo(self)
       make.center.equalTo(self)
     }
 
     handleView.image = UIImage(named: "SliderHandle")
-    handleView.frame = CGRect(origin: .zero, size: CGSize(width: bounds.width, height: bounds.width))
+    handleView.frame = CGRect(origin: .zero, size: CGSize(width: bounds.height, height: bounds.height))
     handleView.contentMode = UIView.ContentMode.scaleAspectFill
     handleView.center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-    handleView.layer.cornerRadius = bounds.width / 2
+    handleView.layer.cornerRadius = bounds.height / 2
     handleView.layer.masksToBounds = false
     handleView.layer.backgroundColor = color.cgColor
     handleView.layer.shadowOffset = CGSize(width: 0, height: 7)
@@ -55,18 +55,19 @@ class SliderView: UIView {
   }
 
   public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    if handler == nil { return }
     guard let touch = touches.first else { return }
 
     let location = touch.location(in: self)
-    let distance = location.y - bounds.height / 2
+    let distance = location.x - bounds.width / 2
 
-    if abs(distance) <= bounds.height / 2 {
-      handleView.center.y = distance + bounds.height / 2
+    if abs(distance) <= bounds.width / 2 {
+      handleView.center.x = distance + bounds.width / 2
     } else {
-      handleView.center.y = distance <= 0 ? 0 : bounds.height
+      handleView.center.x = distance <= 0 ? 0 : bounds.width
     }
 
-    let unboundData = -distance / (bounds.height / 2)
+    let unboundData = distance / (bounds.width / 2)
     handler?(abs(unboundData) > 1 ? min(max(unboundData, -1), 1) : unboundData)
   }
 
