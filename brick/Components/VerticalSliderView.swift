@@ -23,7 +23,7 @@ class VerticalSliderView: UIView {
     insertSubview(background, at: 0)
     background.image = UIImage(named: "VerticalSliderBackground")
     background.contentMode = UIView.ContentMode.scaleAspectFill
-    background.snp.makeConstraints { (make) -> Void in
+    background.snp.makeConstraints { make in
       make.height.equalTo(self)
       make.width.equalTo(self).dividedBy(3)
       make.center.equalTo(self)

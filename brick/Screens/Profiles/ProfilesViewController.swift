@@ -31,6 +31,7 @@ class ProfilesViewController: UIViewController {
     super.viewDidLoad()
     title = "Profiles"
     setupCarousel()
+    setupNavigation()
   }
   
   private func setupCarousel() {
@@ -55,7 +56,12 @@ class ProfilesViewController: UIViewController {
     layout.minimumLineSpacing = 20
   }
 
-  @objc func addProfile(sender: UIButton) {
+  private func setupNavigation() {
+    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addProfile))
+    navigationController?.navigationBar.topItem?.rightBarButtonItem = addButton
+  }
+
+  @objc private func addProfile(sender: UIButton) {
     let addViewController = AddProfileViewController()
     let addNavigationController = UINavigationController(rootViewController: addViewController)
     navigationController?.modalTransitionStyle = .coverVertical
@@ -65,9 +71,7 @@ class ProfilesViewController: UIViewController {
 
 extension ProfilesViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    guard let sections = profilesController.sections else {
-      fatalError("No sections in profilesController")
-    }
+    guard let sections = profilesController.sections else { return 0 }
     return sections[section].numberOfObjects
   }
   
@@ -86,4 +90,21 @@ extension ProfilesViewController: UICollectionViewDelegate {
 }
 
 extension ProfilesViewController: NSFetchedResultsControllerDelegate {
+  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    
+    switch type {
+    case .insert:
+      if let indexPath = newIndexPath {
+        collectionView.insertItems(at: [indexPath])
+      }
+      break
+    case .delete:
+      if let indexPath = indexPath {
+        collectionView.deleteItems(at: [indexPath])
+      }
+      break
+    default:
+      break
+    }
+  }
 }

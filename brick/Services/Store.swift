@@ -10,18 +10,6 @@ class Store {
   var container: NSPersistentContainer!
   var viewContext: NSManagedObjectContext!
   
-  static func fillData() {
-    let control = Control(context: store.viewContext)
-    control.x = 100
-    control.y = 100
-    control.type = "stick"
-    
-    let profile = Profile(context: store.viewContext)
-    profile.title = "Simple"
-    profile.addToControls(control)
-    saveContext()
-  }
-  
   static func initialize() {
     let container = NSPersistentContainer(name: "Model")
     container.loadPersistentStores(completionHandler: { (storeDescription, error) in

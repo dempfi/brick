@@ -7,11 +7,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     applyAppearances()
     window = UIWindow(frame: UIScreen.main.bounds)
-    window!.rootViewController = RootNavigation.controller
+    window!.rootViewController = UINavigationController(rootViewController: ProfilesViewController())
     window!.backgroundColor = Colors.bg
     window!.makeKeyAndVisible()
 
-    RootNavigation.setupProfiles()
     Store.initialize()
     return true
   }

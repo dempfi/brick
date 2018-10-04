@@ -14,7 +14,7 @@ class RecycleBinView: UIView {
     layer.cornerRadius = 10
 
     let icon = UIImageView(image: UIImage(named: "RecycleBin"))
-    icon.frame = CGRect(x: 15, y: 11, width: 20, height: 28)
+    icon.frame = CGRect(x: 14, y: 12, width: 22, height: 27)
     addSubview(icon)
     isHidden = true
   }

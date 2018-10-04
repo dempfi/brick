@@ -1,11 +1,5 @@
 import UIKit
 
-enum ControlType {
-  case stick
-  case sliderHorizontal
-  case sliderVertical
-}
-
 class ControlSelectorView: UIView {
   public var handler: ((ControlType) -> Void)?
 
@@ -40,10 +34,10 @@ class ControlSelectorView: UIView {
   }
 
   @objc private func selectSliderHorizontal() {
-    handler?(.sliderHorizontal)
+    handler?(.horizontalSlider)
   }
 
   @objc private func selectSliderVertical() {
-    handler?(.sliderVertical)
+    handler?(.verticalSlider)
   }
 }

@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 
 class AddProfileViewController: UIViewController, UITextFieldDelegate {
-  private var controls = Set<UIView>()
+  private var controlViews = Set<UIView>()
   private let selector = ControlSelectorView()
   private let recycleBin = RecycleBinView()
   private var activeView: UIView?
@@ -12,17 +12,42 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
     view.backgroundColor = Colors.bg
     setupSubviews()
     setupPanRecognizer()
-    addDoneButton()
+    setupNavigation()
   }
 
-  private func addDoneButton() {
+  private func setupNavigation() {
     let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onDone))
-    AddProfileNavigation.controller.navigationBar.topItem?.rightBarButtonItem = doneButton
+    navigationController?.navigationBar.topItem?.rightBarButtonItem = doneButton
+
+    let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(hideSelf))
+    navigationController?.navigationBar.topItem?.leftBarButtonItem = cancelButton
+  }
+
+  @objc private func hideSelf() {
+    navigationController?.dismiss(animated: true, completion: nil)
   }
 
   @objc private func onDone() {
-    let collections = controls.map { subview in subview.frame.origin }
-    print(collections)
+    if controlViews.count == 0 { return }
+    let profile = Profile(context: Store.moc)
+
+    for view in controlViews {
+      let control = Control(context: Store.moc)
+      control.x = Float(view.frame.origin.x)
+      control.y = Float(view.frame.origin.y)
+
+      switch view {
+      case is StickView: control.type = ControlType.stick.rawValue
+      case is VerticalSliderView: control.type = ControlType.verticalSlider.rawValue
+      case is HorizontalSliderView: control.type = ControlType.horizontalSlider.rawValue
+      default: print("Shouldn't happen.")
+      }
+
+      control.profile = profile
+    }
+
+    Store.saveContext()
+    hideSelf()
   }
 
   private func setupSubviews() {
@@ -54,11 +79,11 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
     var subview: UIView!
     switch type {
     case .stick: subview = StickView()
-    case .sliderHorizontal: subview = HorizontalSliderView()
-    case .sliderVertical: subview = VerticalSliderView()
+    case .verticalSlider: subview = VerticalSliderView()
+    case .horizontalSlider: subview = HorizontalSliderView()
     }
     subview.center = view.center
-    self.controls.insert(subview)
+    self.controlViews.insert(subview)
     view.insertSubview(subview, belowSubview: selector)
   }
 
@@ -74,7 +99,7 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
     switch recognizer.state {
     case .began:
       guard let target = view.hitTest(p, with: nil) else { return }
-      if !controls.contains(target) { return }
+      if !controlViews.contains(target) { return }
       recycleBin.isHidden = false
       activeView = target
     case .changed:
@@ -85,7 +110,7 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
       let target = view.hitTest(p, with: nil)
       recycleBin.isHidden = true
       if target == recycleBin && activeView != nil {
-        controls.remove(activeView!)
+        controlViews.remove(activeView!)
         activeView!.removeFromSuperview()
       }
     default:
