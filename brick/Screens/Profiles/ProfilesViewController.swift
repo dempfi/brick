@@ -1,12 +1,10 @@
 import UIKit
 import CoreData
-import CenteredCollectionView
 import SnapKit
 
 class ProfilesViewController: UIViewController {
   let CELL_ID = "PROFILE_CELL"
-  var collectionView: UICollectionView!
-  let layout = CenteredCollectionViewFlowLayout()
+  let collectionView = UICollectionView(frame: .zero, collectionViewLayout: ProfilesCollectionLayout())
 
   lazy var profilesController = {
     return Store.profilesController(delegate: self)
@@ -17,29 +15,17 @@ class ProfilesViewController: UIViewController {
       return navigationController?.navigationBar
     }
   }
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    collectionView = UICollectionView(centeredCollectionViewFlowLayout: layout)
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Profiles"
-    setupCarousel()
+    setupCollectionView()
     setupNavigation()
   }
-  
-  private func setupCarousel() {
+
+  private func setupCollectionView() {
     view.addSubview(collectionView)
-    
-    collectionView.backgroundColor = .clear
-    collectionView.translatesAutoresizingMaskIntoConstraints = false
-    
+
     collectionView.snp.makeConstraints { (make) -> Void in
       make.width.equalTo(view)
       make.top.equalTo(view.safeAreaLayoutGuide)
@@ -47,13 +33,10 @@ class ProfilesViewController: UIViewController {
     }
 
     collectionView.register(ProfilesCellView.self, forCellWithReuseIdentifier: CELL_ID)
-    collectionView.showsVerticalScrollIndicator = false
-    collectionView.showsHorizontalScrollIndicator = false
+    collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
+    collectionView.backgroundColor = .clear
     collectionView.dataSource = self
     collectionView.delegate = self
-
-    layout.itemSize = CGSize(width: 550, height: 280)
-    layout.minimumLineSpacing = 20
   }
 
   private func setupNavigation() {
@@ -76,7 +59,8 @@ extension ProfilesViewController: UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath)
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath) as! ProfilesCellView
+    cell.profile = profilesController.object(at: indexPath)
     return cell
   }
 }

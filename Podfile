@@ -7,6 +7,5 @@ target 'brick' do
 
   # Pods for brick
   pod "SBrick-iOS"
-  pod "CenteredCollectionView"
   pod "SnapKit"
 end

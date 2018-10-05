@@ -5,13 +5,20 @@ class HorizontalSliderView: UIView {
   public var handler: ((CGFloat) -> Void)?
   public var color = Colors.silver
   private var handleView = UIImageView(frame: .zero)
+  private var ratio: CGFloat = 1
 
   public convenience init() {
     self.init(at: .zero)
   }
 
-  public init(at: CGPoint) {
-    super.init(frame: CGRect(origin: at, size: CGSize(width: 210, height: 70)))
+  public convenience init(at: CGPoint) {
+    self.init(at: at, ratio: 1)
+  }
+
+  public init(at: CGPoint, ratio: CGFloat) {
+    let size = CGSize(width: 210 * ratio, height: 70 * ratio)
+    super.init(frame: CGRect(origin: at, size: size))
+    self.ratio = ratio
   }
 
   public required init?(coder aDecoder: NSCoder) {
@@ -30,15 +37,15 @@ class HorizontalSliderView: UIView {
     }
 
     handleView.image = UIImage(named: "SliderHandle")
-    handleView.frame = CGRect(origin: .zero, size: CGSize(width: bounds.height, height: bounds.height))
+    handleView.frame = CGRect(origin: .zero, size: CGSize(width: rect.height, height: rect.height))
     handleView.contentMode = UIView.ContentMode.scaleAspectFill
-    handleView.center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-    handleView.layer.cornerRadius = bounds.height / 2
+    handleView.center = CGPoint(x: rect.width / 2, y: rect.height / 2)
+    handleView.layer.cornerRadius = rect.height / 2
     handleView.layer.masksToBounds = false
     handleView.layer.backgroundColor = color.cgColor
-    handleView.layer.shadowOffset = CGSize(width: 0, height: 7)
+    handleView.layer.shadowOffset = CGSize(width: 0, height: 7 * ratio)
     handleView.layer.shadowColor = UIColor.black.cgColor
-    handleView.layer.shadowRadius = 10
+    handleView.layer.shadowRadius = 7.5 * ratio
     handleView.layer.shadowOpacity = 1
 
     if let superview = handleView.superview {
@@ -49,13 +56,14 @@ class HorizontalSliderView: UIView {
   }
 
   public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    if handler == nil { return super.touchesBegan(touches, with: event) }
     UIView.animate(withDuration: 0.1) {
       self.touchesMoved(touches, with: event)
     }
   }
 
   public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    if handler == nil { return }
+    if handler == nil { return super.touchesMoved(touches, with: event) }
     guard let touch = touches.first else { return }
 
     let location = touch.location(in: self)
@@ -72,10 +80,12 @@ class HorizontalSliderView: UIView {
   }
 
   public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    if handler == nil { return super.touchesEnded(touches, with: event) }
     reset()
   }
 
   public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    if handler == nil { return super.touchesCancelled(touches, with: event) }
     reset()
   }
 

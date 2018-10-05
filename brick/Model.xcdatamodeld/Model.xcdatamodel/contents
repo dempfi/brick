@@ -7,11 +7,12 @@
         <relationship name="profile" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="controls" inverseEntity="Profile" syncable="YES"/>
     </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="class">
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="controls" toMany="YES" deletionRule="Cascade" destinationEntity="Control" inverseName="profile" inverseEntity="Control" syncable="YES"/>
     </entity>
     <elements>
         <element name="Control" positionX="-63" positionY="-9" width="128" height="105"/>
-        <element name="Profile" positionX="-421.171875" positionY="-52.68359375" width="128" height="73"/>
+        <element name="Profile" positionX="-421.171875" positionY="-52.68359375" width="128" height="90"/>
     </elements>
 </model>

@@ -30,6 +30,7 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
   @objc private func onDone() {
     if controlViews.count == 0 { return }
     let profile = Profile(context: Store.moc)
+    profile.timestamp = Date()
 
     for view in controlViews {
       let control = Control(context: Store.moc)

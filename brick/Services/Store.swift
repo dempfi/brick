@@ -40,7 +40,7 @@ class Store {
   
   static func profilesController(delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController<Profile> {
     let request: NSFetchRequest<Profile> = Profile.fetchRequest()
-    request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Profile.title), ascending: true)]
+    request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Profile.timestamp), ascending: false)]
     let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: Store.moc, sectionNameKeyPath: nil, cacheName: nil)
     frc.delegate = delegate
     do {
