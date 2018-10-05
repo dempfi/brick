@@ -3,16 +3,16 @@ import CoreData
 
 class Store {
   private static let store = Store()
-  
+
   private init() {
   }
-  
+
   var container: NSPersistentContainer!
   var viewContext: NSManagedObjectContext!
-  
+
   static func initialize() {
     let container = NSPersistentContainer(name: "Model")
-    container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+    container.loadPersistentStores(completionHandler: { (_, error) in
       if let error = error as NSError? {
         fatalError("Unresolved error \(error), \(error.userInfo)")
       }
@@ -20,13 +20,11 @@ class Store {
     store.container = container
     store.viewContext = container.viewContext
   }
-  
+
   static var moc: NSManagedObjectContext {
-    get {
-      return store.viewContext
-    }
+    return store.viewContext
   }
-  
+
   static func saveContext () {
     if store.viewContext.hasChanges {
       do {
@@ -37,11 +35,16 @@ class Store {
       }
     }
   }
-  
+
   static func profilesController(delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController<Profile> {
     let request: NSFetchRequest<Profile> = Profile.fetchRequest()
     request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Profile.timestamp), ascending: false)]
-    let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: Store.moc, sectionNameKeyPath: nil, cacheName: nil)
+    let frc = NSFetchedResultsController(
+      fetchRequest: request,
+      managedObjectContext: Store.moc,
+      sectionNameKeyPath: nil,
+      cacheName: nil
+    )
     frc.delegate = delegate
     do {
       try frc.performFetch()

@@ -9,7 +9,7 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = Colors.bg
+    view.backgroundColor = Colors.background
     setupSubviews()
     setupPanRecognizer()
     setupNavigation()
@@ -89,26 +89,26 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
   }
 
   private func setupPanRecognizer() {
-    let pan = UIPanGestureRecognizer(target:self, action: #selector(onPan))
+    let pan = UIPanGestureRecognizer(target: self, action: #selector(onPan))
     pan.maximumNumberOfTouches = 1
     pan.minimumNumberOfTouches = 1
     self.view.addGestureRecognizer(pan)
   }
 
   @objc private func onPan(recognizer: UIPanGestureRecognizer) {
-    let p = recognizer.location(in: self.view)
+    let touchPoint = recognizer.location(in: self.view)
     switch recognizer.state {
     case .began:
-      guard let target = view.hitTest(p, with: nil) else { return }
+      guard let target = view.hitTest(touchPoint, with: nil) else { return }
       if !controlViews.contains(target) { return }
       recycleBin.isHidden = false
       activeView = target
     case .changed:
       guard let subview = self.activeView else { return }
-      subview.center.x = p.x - (p.x.truncatingRemainder(dividingBy: 10))
-      subview.center.y = p.y - (p.y.truncatingRemainder(dividingBy: 10))
+      subview.center.x = touchPoint.x - (touchPoint.x.truncatingRemainder(dividingBy: 10))
+      subview.center.y = touchPoint.y - (touchPoint.y.truncatingRemainder(dividingBy: 10))
     case .ended:
-      let target = view.hitTest(p, with: nil)
+      let target = view.hitTest(touchPoint, with: nil)
       recycleBin.isHidden = true
       if target == recycleBin && activeView != nil {
         controlViews.remove(activeView!)

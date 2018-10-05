@@ -3,18 +3,12 @@ import CoreData
 import SnapKit
 
 class ProfilesViewController: UIViewController {
-  let CELL_ID = "PROFILE_CELL"
+  let cellId = "PROFILE_CELL"
   let collectionView = UICollectionView(frame: .zero, collectionViewLayout: ProfilesCollectionLayout())
 
   lazy var profilesController = {
     return Store.profilesController(delegate: self)
   }()
-  
-  var navbar: UINavigationBar? {
-    get {
-      return navigationController?.navigationBar
-    }
-  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,7 +26,7 @@ class ProfilesViewController: UIViewController {
       make.bottom.equalTo(view.safeAreaLayoutGuide)
     }
 
-    collectionView.register(ProfilesCellView.self, forCellWithReuseIdentifier: CELL_ID)
+    collectionView.register(ProfilesCellView.self, forCellWithReuseIdentifier: cellId)
     collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
     collectionView.backgroundColor = .clear
     collectionView.dataSource = self
@@ -57,9 +51,10 @@ extension ProfilesViewController: UICollectionViewDataSource {
     guard let sections = profilesController.sections else { return 0 }
     return sections[section].numberOfObjects
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath) as! ProfilesCellView
+    let reausableCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+    guard let cell = reausableCell as? ProfilesCellView else { return reausableCell }
     cell.profile = profilesController.object(at: indexPath)
     return cell
   }
@@ -74,21 +69,26 @@ extension ProfilesViewController: UICollectionViewDelegate {
 }
 
 extension ProfilesViewController: NSFetchedResultsControllerDelegate {
-  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-    
+  func controller(
+    _ controller: NSFetchedResultsController<NSFetchRequestResult>,
+    didChange anObject: Any,
+    at indexPath: IndexPath?,
+    for type: NSFetchedResultsChangeType,
+    newIndexPath: IndexPath?
+  ) {
+
     switch type {
     case .insert:
       if let indexPath = newIndexPath {
         collectionView.insertItems(at: [indexPath])
       }
-      break
+
     case .delete:
       if let indexPath = indexPath {
         collectionView.deleteItems(at: [indexPath])
       }
-      break
-    default:
-      break
+
+    default: break
     }
   }
 }

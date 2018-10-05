@@ -14,17 +14,22 @@ class ProfilesCollectionLayout: UICollectionViewFlowLayout {
 
   override func prepare() {
     guard let collectionView = collectionView else { fatalError() }
-    let verticalInsets = (collectionView.frame.height - collectionView.adjustedContentInset.top - collectionView.adjustedContentInset.bottom - itemSize.height) / 2
-    let horizontalInsets = (collectionView.frame.width - collectionView.adjustedContentInset.right - collectionView.adjustedContentInset.left - itemSize.width) / 2
-    sectionInset = UIEdgeInsets(top: verticalInsets, left: horizontalInsets, bottom: verticalInsets, right: horizontalInsets)
+    let collectionInset = collectionView.adjustedContentInset
+    let collectionSize = collectionView.frame.size
+    let yInsets = (collectionSize.height - collectionInset.top - collectionInset.bottom - itemSize.height) / 2
+    let xInsets = (collectionSize.width - collectionInset.right - collectionInset.left - itemSize.width) / 2
+    sectionInset = UIEdgeInsets(top: yInsets, left: xInsets, bottom: yInsets, right: xInsets)
     super.prepare()
   }
 
-  override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+  override func targetContentOffset(
+    forProposedContentOffset proposedContentOffset: CGPoint,
+    withScrollingVelocity velocity: CGPoint
+  ) -> CGPoint {
     guard let collectionView = collectionView else { return .zero }
 
     // Add some snapping behaviour so that the zoomed cell is always centered
-    let targetRect = CGRect(x: proposedContentOffset.x, y: 0, width: collectionView.frame.width, height: collectionView.frame.height)
+    let targetRect = CGRect(origin: CGPoint(x: proposedContentOffset.x, y: 0), size: collectionView.frame.size)
     guard let rectAttributes = super.layoutAttributesForElements(in: targetRect) else { return .zero }
 
     var offsetAdjustment = CGFloat.greatestFiniteMagnitude
@@ -45,7 +50,8 @@ class ProfilesCollectionLayout: UICollectionViewFlowLayout {
   }
 
   override func invalidationContext(forBoundsChange newBounds: CGRect) -> UICollectionViewLayoutInvalidationContext {
-    let context = super.invalidationContext(forBoundsChange: newBounds) as! UICollectionViewFlowLayoutInvalidationContext
+    let superContext = super.invalidationContext(forBoundsChange: newBounds)
+    guard let context = superContext as? UICollectionViewFlowLayoutInvalidationContext else { return superContext }
     context.invalidateFlowLayoutDelegateMetrics = newBounds.size != collectionView?.bounds.size
     return context
   }

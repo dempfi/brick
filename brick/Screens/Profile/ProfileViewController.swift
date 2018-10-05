@@ -3,30 +3,29 @@ import SBrick
 
 class ProfileViewController: UIViewController {
   var profile: Profile!
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = Colors.bg
-    profile.controls?.forEach { c in addControl(c as! Control) }
-  }
+    view.backgroundColor = Colors.background
 
-  private func addControl(_ control: Control) -> Void {
-    let origin = CGPoint(x: CGFloat(control.x), y: CGFloat(control.y))
+    for case let control as Control in profile.controls! {
+      let origin = CGPoint(x: CGFloat(control.x), y: CGFloat(control.y))
 
-    switch control.type {
-    case ControlType.stick.rawValue:
-      let stick = StickView(at: origin)
-      stick.handler = { data in print(data) }
-      view.addSubview(stick)
-    case ControlType.verticalSlider.rawValue:
-      let slider = VerticalSliderView(at: origin)
-      slider.handler = { data in print(data) }
-      view.addSubview(slider)
-    case ControlType.horizontalSlider.rawValue:
-      let slider = HorizontalSliderView(at: origin)
-      slider.handler = { data in print(data) }
-      view.addSubview(slider)
-    default: break
+      switch control.type {
+      case ControlType.stick.rawValue:
+        let stick = StickView(at: origin)
+        stick.handler = { data in print(data) }
+        view.addSubview(stick)
+      case ControlType.verticalSlider.rawValue:
+        let slider = VerticalSliderView(at: origin)
+        slider.handler = { data in print(data) }
+        view.addSubview(slider)
+      case ControlType.horizontalSlider.rawValue:
+        let slider = HorizontalSliderView(at: origin)
+        slider.handler = { data in print(data) }
+        view.addSubview(slider)
+      default: break
+      }
     }
   }
 }
