@@ -13,6 +13,7 @@
 		747AE29A215F13440083F261 /* ProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747AE299215F13440083F261 /* ProfilesViewController.swift */; };
 		747AE29F215F13450083F261 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747AE29E215F13450083F261 /* Assets.xcassets */; };
 		748C161D2167D509009918A5 /* ProfilesCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C161C2167D509009918A5 /* ProfilesCollectionLayout.swift */; };
+		748C162021680A96009918A5 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C161F21680A96009918A5 /* ControlView.swift */; };
 		748C3DBD2161746D00DF0BCB /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C3DBC2161746D00DF0BCB /* AddProfileViewController.swift */; };
 		749290E321630B93001B1048 /* ControlSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749290E221630B93001B1048 /* ControlSelectorView.swift */; };
 		74A36DFF2161CB4C00E03650 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A36DFE2161CB4C00E03650 /* Constants.swift */; };
@@ -37,6 +38,7 @@
 		747AE29E215F13450083F261 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		747AE2A3215F13450083F261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		748C161C2167D509009918A5 /* ProfilesCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesCollectionLayout.swift; sourceTree = "<group>"; };
+		748C161F21680A96009918A5 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
 		748C3DBC2161746D00DF0BCB /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		749290E221630B93001B1048 /* ControlSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlSelectorView.swift; sourceTree = "<group>"; };
 		74A36DFE2161CB4C00E03650 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				74B46D17216021E00009EC29 /* StickView.swift */,
+				748C161F21680A96009918A5 /* ControlView.swift */,
 				74256E8921623AF600A464CB /* VerticalSliderView.swift */,
 				74EA6E4821644A5200A3D973 /* HorizontalSliderView.swift */,
 			);
@@ -315,6 +318,7 @@
 				748C161D2167D509009918A5 /* ProfilesCollectionLayout.swift in Sources */,
 				745D9B3E2163F6F900ED1127 /* RecycleBinView.swift in Sources */,
 				748C3DBD2161746D00DF0BCB /* AddProfileViewController.swift in Sources */,
+				748C162021680A96009918A5 /* ControlView.swift in Sources */,
 				74B46D18216021E00009EC29 /* StickView.swift in Sources */,
 				74E56BC5215FF92200B58258 /* ProfileViewController.swift in Sources */,
 				749290E321630B93001B1048 /* ControlSelectorView.swift in Sources */,
