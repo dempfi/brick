@@ -6,6 +6,5 @@ target 'brick' do
   use_frameworks!
 
   # Pods for brick
-  pod "SBrick-iOS"
   pod "SnapKit"
 end

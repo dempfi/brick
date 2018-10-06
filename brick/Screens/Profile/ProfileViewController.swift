@@ -1,5 +1,4 @@
 import UIKit
-import SBrick
 
 class ProfileViewController: UIViewController {
   var profile: Profile!

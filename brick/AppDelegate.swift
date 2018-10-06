@@ -3,7 +3,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
-
+  let manager = SBrickController()
   func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window!.backgroundColor = Colors.background
     window!.makeKeyAndVisible()
 
+    manager.scan()
     Store.initialize()
     return true
   }
