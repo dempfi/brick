@@ -3,7 +3,8 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
-  let manager = SBrickController()
+  var sbrickManager: SBrickManager!
+
   func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -14,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window!.backgroundColor = Colors.background
     window!.makeKeyAndVisible()
 
-    manager.scan()
+    sbrickManager = SBrickManager(delegate: self)
+    sbrickManager.scan()
     Store.initialize()
     return true
   }
@@ -30,5 +32,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UINavigationBar.appearance().titleTextAttributes = [
       NSAttributedString.Key.foregroundColor: UIColor.white
     ]
+  }
+}
+
+extension AppDelegate: SBrickManagerDelegate, SBrickDelegate {
+  func sbrickManager(_ manager: SBrickManager, didDiscover sbrick: SBrick) {
+    manager.connect(to: sbrick)
+    sbrick.delegate = self
+  }
+
+  func sbrickReady(_ sbrick: SBrick) {
+    sbrickManager.stopScan()
   }
 }

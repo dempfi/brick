@@ -28,7 +28,6 @@ class ProfilesCollectionLayout: UICollectionViewFlowLayout {
   ) -> CGPoint {
     guard let collectionView = collectionView else { return .zero }
 
-    // Add some snapping behaviour so that the zoomed cell is always centered
     let targetRect = CGRect(origin: CGPoint(x: proposedContentOffset.x, y: 0), size: collectionView.frame.size)
     guard let rectAttributes = super.layoutAttributesForElements(in: targetRect) else { return .zero }
 

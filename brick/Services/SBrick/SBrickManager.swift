@@ -1,13 +1,19 @@
 import Foundation
 import CoreBluetooth
 
-class SBrickController: NSObject {
-  var sbricks = Set<SBrick>()
-  private var centralManager: CBCentralManager!
-  private var shouldScan = false
+protocol SBrickManagerDelegate: class {
+  func sbrickManager(_ manager: SBrickManager, didDiscover sbrick: SBrick)
+}
 
-  override init() {
+class SBrickManager: NSObject {
+  var sbricks = Set<SBrick>()
+  weak var delegate: SBrickManagerDelegate?
+  private var shouldScan = false
+  private var centralManager: CBCentralManager!
+
+  init(delegate: SBrickManagerDelegate) {
     super.init()
+    self.delegate = delegate
     self.centralManager = CBCentralManager(delegate: self, queue: nil)
   }
 
@@ -28,9 +34,13 @@ class SBrickController: NSObject {
   func connect(to sbrick: SBrick) {
     centralManager.connect(sbrick.peripheral, options: nil)
   }
+
+  func get(id: String) -> SBrick? {
+    return self.sbricks.first(where: { $0.identifier == id })
+  }
 }
 
-extension SBrickController: CBCentralManagerDelegate {
+extension SBrickManager: CBCentralManagerDelegate {
   func centralManager(
     _ central: CBCentralManager,
     didDiscover peripheral: CBPeripheral,
@@ -39,9 +49,8 @@ extension SBrickController: CBCentralManagerDelegate {
   ) {
     guard let sbrick = SBrick(peripheral, advertisementData) else { return }
     guard sbricks.allSatisfy({ $0.peripheral != peripheral }) else { return }
-    print(sbrick.name, sbrick.manufacturerData)
     sbricks.insert(sbrick)
-    connect(to: sbrick)
+    delegate?.sbrickManager(self, didDiscover: sbrick)
   }
 
   func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
@@ -56,6 +65,9 @@ extension SBrickController: CBCentralManagerDelegate {
   }
 
   func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+    if error != nil {
+      print(error!.localizedDescription)
+    }
     print("Disconnected")
   }
 
