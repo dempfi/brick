@@ -43,8 +43,8 @@ class HorizontalSliderView: ControlView<CGFloat> {
     }
   }
 
-  override func onTouch(location: CGPoint) {
-    let distance = location.x - bounds.width / 2
+  override func onTouch(at: CGPoint) {
+    let distance = at.x - bounds.width / 2
 
     if abs(distance) <= bounds.width / 2 {
       handle.center.x = distance + bounds.width / 2
@@ -54,5 +54,9 @@ class HorizontalSliderView: ControlView<CGFloat> {
 
     let unboundData = distance / (bounds.width / 2)
     handler?(abs(unboundData) > 1 ? min(max(unboundData, -1), 1) : unboundData)
+  }
+
+  override func onReset() {
+    handler?(0)
   }
 }

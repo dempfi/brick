@@ -1,18 +1,6 @@
 import UIKit
 
-public struct StickData: CustomStringConvertible {
-  // (-1.0, -1.0) at bottom left to (1.0, 1.0) at top right
-  public var velocity: CGPoint = .zero
-
-  // 0 at top middle to 6.28 radians going around clockwise
-  public var angle: CGFloat = 0.0
-
-  public var description: String {
-    return "velocity: \(velocity), angle: \(angle)"
-  }
-}
-
-class StickView: ControlView<StickData> {
+class StickView: ControlView<CGPoint> {
   required convenience init() {
     self.init(at: .zero)
   }
@@ -54,26 +42,50 @@ class StickView: ControlView<StickData> {
     }
   }
 
-  override func onTouch(location: CGPoint) {
-    let distance = CGPoint(x: location.x - bounds.width / 2, y: location.y - bounds.height / 2)
-    let magV = sqrt(pow(distance.x, 2) + pow(distance.y, 2))
-    let boundsSize = bounds.width / 2
+  override func onTouch(at: CGPoint) {
+    let radius = bounds.width / 2
+    let location = CGPoint(x: at.x - radius, y: at.y - radius)
+    let distance = sqrt(pow(location.x, 2) + pow(location.y, 2))
+    var inBoundPoint = distance <= radius ? location : location / distance * radius
 
-    if magV <= boundsSize {
-      handle.center = CGPoint(x: distance.x + bounds.width / 2, y: distance.y + bounds.height / 2)
-    } else {
-      let x = distance.x / magV * boundsSize
-      let y = distance.y / magV * boundsSize
-      handle.center = CGPoint(x: x + boundsSize, y: y + boundsSize)
-    }
+    handle.center = inBoundPoint + radius
 
-    let x = clamp(distance.x, lower: -bounds.width / 2, upper: bounds.width / 2) / (bounds.width / 2)
-    let y = clamp(distance.y, lower: -bounds.height / 2, upper: bounds.height / 2) / (bounds.height / 2)
-
-    handler?(StickData(velocity: CGPoint(x: x, y: -y), angle: -atan2(x, y) + CGFloat(Double.pi)))
+    inBoundPoint.y = -inBoundPoint.y
+    handler?(squared(inBoundPoint) / radius)
   }
 
-  private func clamp<T: Comparable>(_ value: T, lower: T, upper: T) -> T {
-    return min(max(value, lower), upper)
+  override func onReset() {
+    handler?(.zero)
+  }
+
+  private func squared(_ point: CGPoint) -> CGPoint {
+    let quarterPi = CGFloat(Double.pi / 4)
+    let angle = atan2(point.y, point.x) + CGFloat(Double.pi)
+
+    if angle <= quarterPi || angle > 7 * quarterPi {
+      return point * (1 / cos(angle))
+    } else if angle > quarterPi && angle <= 3 * quarterPi {
+      return point * sin(angle)
+    } else if angle > 3 * quarterPi && angle <= 5 * quarterPi {
+      return point * (-1 / cos(angle))
+    } else if angle > 5 * quarterPi && angle <= 7 * quarterPi {
+      return point * (-1 / sin(angle))
+    }
+
+    return CGPoint.zero
+  }
+}
+
+fileprivate extension CGPoint {
+  static func * (point: CGPoint, scalar: CGFloat) -> CGPoint {
+    return CGPoint(x: point.x * scalar, y: point.y * scalar)
+  }
+
+  static func / (point: CGPoint, scalar: CGFloat) -> CGPoint {
+    return CGPoint(x: point.x / scalar, y: point.y / scalar)
+  }
+
+  static func + (point: CGPoint, scalar: CGFloat) -> CGPoint {
+    return CGPoint(x: point.x + scalar, y: point.y + scalar)
   }
 }

@@ -59,7 +59,7 @@ class ControlView<T>: UIView {
   override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     if !isConnected { return super.touchesMoved(touches, with: event) }
     guard let touch = touches.first else { return }
-    onTouch(location: touch.location(in: self))
+    onTouch(at: touch.location(in: self))
   }
 
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -78,6 +78,9 @@ class ControlView<T>: UIView {
     }
   }
 
-  func onTouch(location: CGPoint) {
+  func onTouch(at: CGPoint) {
+  }
+
+  func onReset() {
   }
 }
