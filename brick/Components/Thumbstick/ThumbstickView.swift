@@ -1,6 +1,6 @@
 import UIKit
 
-class StickView: ControlView<CGPoint> {
+class ThumbstickView: ControlView<CGPoint> {
   required convenience init() {
     self.init(at: .zero)
   }
@@ -73,19 +73,5 @@ class StickView: ControlView<CGPoint> {
     }
 
     return CGPoint.zero
-  }
-}
-
-fileprivate extension CGPoint {
-  static func * (point: CGPoint, scalar: CGFloat) -> CGPoint {
-    return CGPoint(x: point.x * scalar, y: point.y * scalar)
-  }
-
-  static func / (point: CGPoint, scalar: CGFloat) -> CGPoint {
-    return CGPoint(x: point.x / scalar, y: point.y / scalar)
-  }
-
-  static func + (point: CGPoint, scalar: CGFloat) -> CGPoint {
-    return CGPoint(x: point.x + scalar, y: point.y + scalar)
   }
 }

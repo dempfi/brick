@@ -1,7 +1,7 @@
 import UIKit
 
 class ControlSelectorView: UIView {
-  public var handler: ((ControlType) -> Void)?
+  public var handler: ((Control.type) -> Void)?
 
   override open var intrinsicContentSize: CGSize {
     return CGSize(width: 200, height: 50)
@@ -28,7 +28,7 @@ class ControlSelectorView: UIView {
   }
 
   @objc private func selectStick() {
-    handler?(.stick)
+    handler?(.thumbstick)
   }
 
   @objc private func selectSliderHorizontal() {

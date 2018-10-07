@@ -30,19 +30,15 @@ class ProfilesCellView: UICollectionViewCell {
 
     for case let control as Control in profile.controls! {
       var view: UIView!
-      let origin = CGPoint(
-        x: CGFloat(control.x) * ratio + margins.x,
-        y: CGFloat(control.y) * ratio + margins.y
-      )
+      let origin = control.origin * ratio + margins
 
       switch control.type {
-      case ControlType.stick.rawValue:
-        view = StickView(at: origin, ratio: ratio)
-      case ControlType.verticalSlider.rawValue:
+      case .thumbstick:
+        view = ThumbstickView(at: origin, ratio: ratio)
+      case .verticalSlider:
         view = VerticalSliderView(at: origin, ratio: ratio)
-      case ControlType.horizontalSlider.rawValue:
+      case .horizontalSlider:
         view = HorizontalSliderView(at: origin, ratio: ratio)
-      default: break
       }
 
       contentView.addSubview(view)

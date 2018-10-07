@@ -33,18 +33,26 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
     profile.timestamp = Date()
 
     for view in controlViews {
-      let control = Control(context: Store.moc)
-      control.x = Float(view.frame.origin.x)
-      control.y = Float(view.frame.origin.y)
-
       switch view {
-      case is StickView: control.type = ControlType.stick.rawValue
-      case is VerticalSliderView: control.type = ControlType.verticalSlider.rawValue
-      case is HorizontalSliderView: control.type = ControlType.horizontalSlider.rawValue
+      case is ThumbstickView:
+        let control = Thumbstick(context: Store.moc)
+        control.type = .thumbstick
+        control.profile = profile
+        control.origin = view.frame.origin
+      case is VerticalSliderView:
+        let control = Slider(context: Store.moc)
+        control.type = .verticalSlider
+        control.profile = profile
+        control.sbrick = ("68:20:7B:B1:8C:50", SBrickPort.id.port1)
+        control.origin = view.frame.origin
+      case is HorizontalSliderView:
+        let control = Slider(context: Store.moc)
+        control.profile = profile
+        control.type = .horizontalSlider
+        control.sbrick = ("68:20:7B:B1:8C:50", SBrickPort.id.port1)
+        control.origin = view.frame.origin
       default: print("Shouldn't happen.")
       }
-
-      control.profile = profile
     }
 
     Store.saveContext()
@@ -76,10 +84,10 @@ class AddProfileViewController: UIViewController, UITextFieldDelegate {
     }
   }
 
-  private func onSelect(_ type: ControlType) {
+  private func onSelect(_ type: Control.type) {
     var subview: UIView!
     switch type {
-    case .stick: subview = StickView()
+    case .thumbstick: subview = ThumbstickView()
     case .verticalSlider: subview = VerticalSliderView()
     case .horizontalSlider: subview = HorizontalSliderView()
     }

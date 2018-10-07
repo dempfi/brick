@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class HorizontalSliderView: ControlView<CGFloat> {
+class HorizontalSliderView: SliderView {
   required convenience init() {
     self.init(at: .zero)
   }
@@ -54,9 +54,5 @@ class HorizontalSliderView: ControlView<CGFloat> {
 
     let unboundData = distance / (bounds.width / 2)
     handler?(abs(unboundData) > 1 ? min(max(unboundData, -1), 1) : unboundData)
-  }
-
-  override func onReset() {
-    handler?(0)
   }
 }

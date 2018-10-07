@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Control" representedClassName="Control" syncable="YES" codeGenerationType="class">
-        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="x" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="y" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    <entity name="Control" representedClassName="Control" isAbstract="YES" syncable="YES">
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="x" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="y" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="profile" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="controls" inverseEntity="Profile" syncable="YES"/>
     </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="class">
@@ -11,8 +11,20 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="controls" toMany="YES" deletionRule="Cascade" destinationEntity="Control" inverseName="profile" inverseEntity="Control" syncable="YES"/>
     </entity>
+    <entity name="Slider" representedClassName="Slider" parentEntity="Control" syncable="YES">
+        <attribute name="sbrickId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sbrickPort" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="Thumbstick" representedClassName="Thumbstick" parentEntity="Control" syncable="YES">
+        <attribute name="sbrickIdX" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="sbrickIdY" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="sbrickPortX" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sbrickPortY" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Control" positionX="-63" positionY="-9" width="128" height="105"/>
-        <element name="Profile" positionX="-421.171875" positionY="-52.68359375" width="128" height="90"/>
+        <element name="Control" positionX="-63" positionY="-9" width="128" height="103"/>
+        <element name="Profile" positionX="-74.67578125" positionY="-287.3671875" width="128" height="90"/>
+        <element name="Slider" positionX="-322.63671875" positionY="307.984375" width="128" height="75"/>
+        <element name="Thumbstick" positionX="103.80078125" positionY="290.19140625" width="128" height="105"/>
     </elements>
 </model>

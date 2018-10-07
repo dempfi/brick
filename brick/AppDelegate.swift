@@ -10,12 +10,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     applyAppearances()
+    sbrickManager = SBrickManager(delegate: self)
+    let profiles = ProfilesViewController()
+    profiles.sbrickManager = sbrickManager
     window = UIWindow(frame: UIScreen.main.bounds)
-    window!.rootViewController = UINavigationController(rootViewController: ProfilesViewController())
+    window!.rootViewController = UINavigationController(rootViewController: profiles)
     window!.backgroundColor = Colors.background
     window!.makeKeyAndVisible()
 
-    sbrickManager = SBrickManager(delegate: self)
     sbrickManager.scan()
     Store.initialize()
     return true
@@ -38,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: SBrickManagerDelegate, SBrickDelegate {
   func sbrickManager(_ manager: SBrickManager, didDiscover sbrick: SBrick) {
     manager.connect(to: sbrick)
+    print(sbrick.identifier)
     sbrick.delegate = self
   }
 

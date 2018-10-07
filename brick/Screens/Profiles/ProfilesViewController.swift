@@ -5,6 +5,7 @@ import SnapKit
 class ProfilesViewController: UIViewController {
   let cellId = "PROFILE_CELL"
   let collectionView = UICollectionView(frame: .zero, collectionViewLayout: ProfilesCollectionLayout())
+  var sbrickManager: SBrickManager!
 
   lazy var profilesController = {
     return Store.profilesController(delegate: self)
@@ -62,9 +63,9 @@ extension ProfilesViewController: UICollectionViewDataSource {
 
 extension ProfilesViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let profileView = ProfileViewController()
-    profileView.profile = profilesController.object(at: indexPath)
-    navigationController?.pushViewController(profileView, animated: true)
+    let profile = profilesController.object(at: indexPath)
+    let view = ProfileViewController(profile: profile, manager: self.sbrickManager)
+    navigationController?.pushViewController(view, animated: true)
   }
 }
 
