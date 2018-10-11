@@ -76,6 +76,7 @@ class ControlView<T>: UIView {
     UIView.animate(withDuration: 0.25) {
       self.handle.center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
     }
+    onReset()
   }
 
   func onTouch(at: CGPoint) {

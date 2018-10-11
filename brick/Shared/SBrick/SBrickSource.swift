@@ -1,25 +1,32 @@
 import Foundation
 import CoreBluetooth
 
-typealias SBrickLookupTask = (
-  id: String,
-  onSuccess: (_: SBrick) -> Void,
-  onFailure: (_: String) -> Void
-)
+class SBrickSource: NSObject {
+  typealias LookupTask = (
+    id: String,
+    onSuccess: (_: SBrick) -> Void,
+    onFailure: ((_: String) -> Void)?
+  )
 
-class SBrickManager: NSObject {
   var sbricks = Set<SBrick>()
   private var shouldScan = false
   private var centralManager: CBCentralManager!
-  private var scanQueue = [SBrickLookupTask]()
+  private var scanQueue = [LookupTask]()
 
-  override init() {
+  static let shared = SBrickSource()
+
+  private override init() {
     super.init()
     self.centralManager = CBCentralManager(delegate: self, queue: nil)
   }
 
-  func lookup(_ id: String, onSuccess: @escaping (_: SBrick) -> Void, onFailure: @escaping (_: String) -> Void) {
-    scanQueue.append(SBrickLookupTask(id: id, onSuccess: onSuccess, onFailure: onFailure))
+  func lookup(_ id: String, onSuccess: @escaping (_: SBrick) -> Void) {
+    if let sbrick = sbricks.first(where: { $0.id == id }) {
+      onSuccess(sbrick)
+      return
+    }
+
+    scanQueue.append(LookupTask(id: id, onSuccess: onSuccess, onFailure: nil))
     if centralManager.isScanning { return }
     lookupAny()
   }
@@ -42,7 +49,7 @@ class SBrickManager: NSObject {
   }
 }
 
-extension SBrickManager: CBCentralManagerDelegate {
+extension SBrickSource: CBCentralManagerDelegate {
   func centralManager(
     _ central: CBCentralManager,
     didDiscover peripheral: CBPeripheral,
@@ -54,13 +61,13 @@ extension SBrickManager: CBCentralManagerDelegate {
     sbricks.insert(sbrick)
     if scanQueue.isEmpty { return }
 
-    for (index, task) in scanQueue.enumerated() {
+    for task in scanQueue {
       if task.id != sbrick.id { continue }
+      connect(to: sbrick)
       task.onSuccess(sbrick)
-      scanQueue.remove(at: index)
-      break
     }
 
+    scanQueue.removeAll(where: { $0.id == sbrick.id })
     if scanQueue.isEmpty { stopScan() }
   }
 

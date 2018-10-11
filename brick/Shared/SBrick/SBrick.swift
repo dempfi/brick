@@ -65,11 +65,11 @@ class SBrick: NSObject {
     keepalive()
   }
 
-  func exec(command: SBrickCommand) {
+  func exec(command: SBrickCommand, type: CBCharacteristicWriteType = .withoutResponse) {
     guard let characteristic = self.rcCommandsCharacteristics else { return }
     self.commandsQueue.append(command)
     let data = NSData(bytes: command.data, length: command.data.count)
-    peripheral.writeValue(data as Data, for: characteristic, type: .withResponse)
+    peripheral.writeValue(data as Data, for: characteristic, type: type)
   }
 
   func read() {
@@ -80,7 +80,7 @@ class SBrick: NSObject {
   private func keepalive() {
     guard keepaliveTimer == nil else { return }
     keepaliveTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { [weak self] (_) in
-      self?.exec(command: .readTemperature)
+      self?.exec(command: .readTemperature, type: .withResponse)
     })
   }
 }

@@ -12,6 +12,8 @@ class AddProfileInteractor {
         control.type = .stick
         control.profile = profile
         control.origin = origin
+        control.linkX = ("68:20:7B:B1:8C:50", SBrickPort.id.port1)
+        control.linkY = ("68:20:7B:B1:8C:50", SBrickPort.id.port2)
       } else {
         let control = dataStore.slider()
         control.profile = profile
