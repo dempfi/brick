@@ -7,31 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		740F79DA21691D1E00A2D50D /* SBrickPrimitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F79D921691D1E00A2D50D /* SBrickPrimitives.swift */; };
+		740BEB8A216D250800F4343A /* AddProfileWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740BEB89216D250800F4343A /* AddProfileWireframe.swift */; };
+		740BEB8F216D2E4F00F4343A /* AddProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740BEB8E216D2E4F00F4343A /* AddProfilePresenter.swift */; };
+		740BEB91216D392800F4343A /* AddProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740BEB90216D392800F4343A /* AddProfileInteractor.swift */; };
+		740D0236216ACFE2003B9BA8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D0235216ACFE2003B9BA8 /* UIColor.swift */; };
+		740F79DA21691D1E00A2D50D /* SBrickCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F79D921691D1E00A2D50D /* SBrickCommand.swift */; };
 		740F79DC21697C5500A2D50D /* SBrickPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F79DB21697C5500A2D50D /* SBrickPayload.swift */; };
 		740F79DE216A867A00A2D50D /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F79DD216A867A00A2D50D /* SliderView.swift */; };
-		740F79E2216A87DF00A2D50D /* SliderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F79E1216A87DF00A2D50D /* SliderController.swift */; };
 		74256E8A21623AF600A464CB /* VerticalSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74256E8921623AF600A464CB /* VerticalSliderView.swift */; };
 		742CE7A6216AADE50076501C /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE7A5216AADE50076501C /* Control.swift */; };
 		742CE7A9216AB2150076501C /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE7A8216AB2150076501C /* CGPoint.swift */; };
 		742CE7AB216AB8B90076501C /* SBrickPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE7AA216AB8B90076501C /* SBrickPort.swift */; };
 		742CE7AD216AB9820076501C /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE7AC216AB9820076501C /* Slider.swift */; };
-		742CE7B1216AC1970076501C /* Thumbstick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE7B0216AC1970076501C /* Thumbstick.swift */; };
+		742CE7B1216AC1970076501C /* Stick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE7B0216AC1970076501C /* Stick.swift */; };
 		745D9B3E2163F6F900ED1127 /* RecycleBinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D9B3D2163F6F900ED1127 /* RecycleBinView.swift */; };
+		7463182C216E4ADD00059C31 /* ProfileWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463182B216E4ADD00059C31 /* ProfileWireframe.swift */; };
+		7463182E216E4BA500059C31 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463182D216E4BA500059C31 /* ProfilePresenter.swift */; };
+		74631832216E507100059C31 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74631831216E507100059C31 /* ProfileInteractor.swift */; };
+		74631834216E99F100059C31 /* SliderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74631833216E99F100059C31 /* SliderPresenter.swift */; };
+		74631837216E9C2B00059C31 /* SliderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74631836216E9C2B00059C31 /* SliderInteractor.swift */; };
+		74631839216E9CC300059C31 /* SliderWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74631838216E9CC300059C31 /* SliderWireframe.swift */; };
 		747AE298215F13440083F261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747AE297215F13440083F261 /* AppDelegate.swift */; };
 		747AE29A215F13440083F261 /* ProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747AE299215F13440083F261 /* ProfilesViewController.swift */; };
 		747AE29F215F13450083F261 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747AE29E215F13450083F261 /* Assets.xcassets */; };
-		748C161D2167D509009918A5 /* ProfilesCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C161C2167D509009918A5 /* ProfilesCollectionLayout.swift */; };
+		74866B0E216BE2A3007D124E /* ProfilesWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B0D216BE2A3007D124E /* ProfilesWireframe.swift */; };
+		74866B10216BEA79007D124E /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B0F216BEA79007D124E /* RootWireframe.swift */; };
+		74866B12216BEF96007D124E /* CoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B11216BEF96007D124E /* CoreDataSource.swift */; };
+		74866B15216BF785007D124E /* ProfilesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B14216BF785007D124E /* ProfilesInteractor.swift */; };
+		74866B17216BFD23007D124E /* ProfilesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B16216BFD23007D124E /* ProfilesPresenter.swift */; };
+		748C161D2167D509009918A5 /* CarouselCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C161C2167D509009918A5 /* CarouselCollectionLayout.swift */; };
 		748C162021680A96009918A5 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C161F21680A96009918A5 /* ControlView.swift */; };
 		748C16232168EF4C009918A5 /* SBrickManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C16222168EF4C009918A5 /* SBrickManager.swift */; };
 		748C16252168F6AA009918A5 /* SBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C16242168F6AA009918A5 /* SBrick.swift */; };
 		748C3DBD2161746D00DF0BCB /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C3DBC2161746D00DF0BCB /* AddProfileViewController.swift */; };
 		749290E321630B93001B1048 /* ControlSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749290E221630B93001B1048 /* ControlSelectorView.swift */; };
-		74A36DFF2161CB4C00E03650 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A36DFE2161CB4C00E03650 /* Constants.swift */; };
-		74B46D18216021E00009EC29 /* ThumbstickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B46D17216021E00009EC29 /* ThumbstickView.swift */; };
-		74E56B9B215FD47900B58258 /* ProfilesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E56B9A215FD47900B58258 /* ProfilesCellView.swift */; };
-		74E56B9F215FE16000B58258 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74E56B9D215FE16000B58258 /* Model.xcdatamodeld */; };
-		74E56BA1215FE22300B58258 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E56BA0215FE22300B58258 /* Store.swift */; };
+		74AD02D8216FC06D00AB117B /* StickPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD02D7216FC06D00AB117B /* StickPresenter.swift */; };
+		74AD02DA216FC08D00AB117B /* StickWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD02D9216FC08D00AB117B /* StickWireframe.swift */; };
+		74AD02DC216FC0AD00AB117B /* StickInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD02DB216FC0AD00AB117B /* StickInteractor.swift */; };
+		74B46D18216021E00009EC29 /* StickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B46D17216021E00009EC29 /* StickView.swift */; };
+		74E56B9B215FD47900B58258 /* ProfilesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E56B9A215FD47900B58258 /* ProfilesViewCell.swift */; };
+		74E56B9F215FE16000B58258 /* Entities.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74E56B9D215FE16000B58258 /* Entities.xcdatamodeld */; };
 		74E56BC5215FF92200B58258 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E56BC4215FF92200B58258 /* ProfileViewController.swift */; };
 		74EA6E4921644A5200A3D973 /* HorizontalSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EA6E4821644A5200A3D973 /* HorizontalSliderView.swift */; };
 		75AD71DC337443B2ACE15DF7 /* Pods_brick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC8834258B5834575FAEA39 /* Pods_brick.framework */; };
@@ -40,33 +55,48 @@
 /* Begin PBXFileReference section */
 		0BC8834258B5834575FAEA39 /* Pods_brick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_brick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC5F1C830997F299119BB99 /* Pods-brick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-brick.debug.xcconfig"; path = "Pods/Target Support Files/Pods-brick/Pods-brick.debug.xcconfig"; sourceTree = "<group>"; };
-		740F79D921691D1E00A2D50D /* SBrickPrimitives.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBrickPrimitives.swift; sourceTree = "<group>"; };
+		740BEB89216D250800F4343A /* AddProfileWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileWireframe.swift; sourceTree = "<group>"; };
+		740BEB8E216D2E4F00F4343A /* AddProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfilePresenter.swift; sourceTree = "<group>"; };
+		740BEB90216D392800F4343A /* AddProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileInteractor.swift; sourceTree = "<group>"; };
+		740D0235216ACFE2003B9BA8 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		740F79D921691D1E00A2D50D /* SBrickCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBrickCommand.swift; sourceTree = "<group>"; };
 		740F79DB21697C5500A2D50D /* SBrickPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBrickPayload.swift; sourceTree = "<group>"; };
 		740F79DD216A867A00A2D50D /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
-		740F79E1216A87DF00A2D50D /* SliderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderController.swift; sourceTree = "<group>"; };
 		74256E8921623AF600A464CB /* VerticalSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSliderView.swift; sourceTree = "<group>"; };
 		742CE7A5216AADE50076501C /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 		742CE7A8216AB2150076501C /* CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
 		742CE7AA216AB8B90076501C /* SBrickPort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBrickPort.swift; sourceTree = "<group>"; };
 		742CE7AC216AB9820076501C /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
-		742CE7B0216AC1970076501C /* Thumbstick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbstick.swift; sourceTree = "<group>"; };
+		742CE7B0216AC1970076501C /* Stick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stick.swift; sourceTree = "<group>"; };
 		745D9B3D2163F6F900ED1127 /* RecycleBinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleBinView.swift; sourceTree = "<group>"; };
+		7463182B216E4ADD00059C31 /* ProfileWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWireframe.swift; sourceTree = "<group>"; };
+		7463182D216E4BA500059C31 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		74631831216E507100059C31 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		74631833216E99F100059C31 /* SliderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderPresenter.swift; sourceTree = "<group>"; };
+		74631836216E9C2B00059C31 /* SliderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderInteractor.swift; sourceTree = "<group>"; };
+		74631838216E9CC300059C31 /* SliderWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderWireframe.swift; sourceTree = "<group>"; };
 		747AE294215F13440083F261 /* brick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = brick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747AE297215F13440083F261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		747AE299215F13440083F261 /* ProfilesViewController.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ProfilesViewController.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		747AE29E215F13450083F261 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		747AE2A3215F13450083F261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		748C161C2167D509009918A5 /* ProfilesCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesCollectionLayout.swift; sourceTree = "<group>"; };
+		74866B0D216BE2A3007D124E /* ProfilesWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesWireframe.swift; sourceTree = "<group>"; };
+		74866B0F216BEA79007D124E /* RootWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
+		74866B11216BEF96007D124E /* CoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSource.swift; sourceTree = "<group>"; };
+		74866B14216BF785007D124E /* ProfilesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesInteractor.swift; sourceTree = "<group>"; };
+		74866B16216BFD23007D124E /* ProfilesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesPresenter.swift; sourceTree = "<group>"; };
+		748C161C2167D509009918A5 /* CarouselCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionLayout.swift; sourceTree = "<group>"; };
 		748C161F21680A96009918A5 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
 		748C16222168EF4C009918A5 /* SBrickManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBrickManager.swift; sourceTree = "<group>"; };
 		748C16242168F6AA009918A5 /* SBrick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBrick.swift; sourceTree = "<group>"; };
 		748C3DBC2161746D00DF0BCB /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		749290E221630B93001B1048 /* ControlSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlSelectorView.swift; sourceTree = "<group>"; };
-		74A36DFE2161CB4C00E03650 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		74B46D17216021E00009EC29 /* ThumbstickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbstickView.swift; sourceTree = "<group>"; };
-		74E56B9A215FD47900B58258 /* ProfilesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesCellView.swift; sourceTree = "<group>"; };
+		74AD02D7216FC06D00AB117B /* StickPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickPresenter.swift; sourceTree = "<group>"; };
+		74AD02D9216FC08D00AB117B /* StickWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickWireframe.swift; sourceTree = "<group>"; };
+		74AD02DB216FC0AD00AB117B /* StickInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickInteractor.swift; sourceTree = "<group>"; };
+		74B46D17216021E00009EC29 /* StickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickView.swift; sourceTree = "<group>"; };
+		74E56B9A215FD47900B58258 /* ProfilesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesViewCell.swift; sourceTree = "<group>"; };
 		74E56B9E215FE16000B58258 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		74E56BA0215FE22300B58258 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		74E56BC4215FF92200B58258 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		74EA6E4821644A5200A3D973 /* HorizontalSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSliderView.swift; sourceTree = "<group>"; };
 		B5FE2CFD07D044CB4CDEF1EE /* Pods-brick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-brick.release.xcconfig"; path = "Pods/Target Support Files/Pods-brick/Pods-brick.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,32 +122,46 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		740F79DF216A87B300A2D50D /* Thumbstick */ = {
+		740BEB8B216D282200F4343A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				74B46D17216021E00009EC29 /* ThumbstickView.swift */,
+				74E56B9A215FD47900B58258 /* ProfilesViewCell.swift */,
+				748C161C2167D509009918A5 /* CarouselCollectionLayout.swift */,
+				747AE299215F13440083F261 /* ProfilesViewController.swift */,
 			);
-			path = Thumbstick;
+			path = View;
+			sourceTree = "<group>";
+		};
+		740BEB8D216D287300F4343A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				749290E221630B93001B1048 /* ControlSelectorView.swift */,
+				745D9B3D2163F6F900ED1127 /* RecycleBinView.swift */,
+				748C3DBC2161746D00DF0BCB /* AddProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		740F79DF216A87B300A2D50D /* Stick */ = {
+			isa = PBXGroup;
+			children = (
+				74B46D17216021E00009EC29 /* StickView.swift */,
+				74AD02D7216FC06D00AB117B /* StickPresenter.swift */,
+				74AD02D9216FC08D00AB117B /* StickWireframe.swift */,
+				74AD02DB216FC0AD00AB117B /* StickInteractor.swift */,
+			);
+			path = Stick;
 			sourceTree = "<group>";
 		};
 		740F79E0216A87C600A2D50D /* Slider */ = {
 			isa = PBXGroup;
 			children = (
-				74256E8921623AF600A464CB /* VerticalSliderView.swift */,
-				740F79E1216A87DF00A2D50D /* SliderController.swift */,
-				740F79DD216A867A00A2D50D /* SliderView.swift */,
-				74EA6E4821644A5200A3D973 /* HorizontalSliderView.swift */,
+				74631833216E99F100059C31 /* SliderPresenter.swift */,
+				74631838216E9CC300059C31 /* SliderWireframe.swift */,
+				74631836216E9C2B00059C31 /* SliderInteractor.swift */,
+				74631835216E9B0B00059C31 /* View */,
 			);
 			path = Slider;
-			sourceTree = "<group>";
-		};
-		7421408B215FB6F40052255C /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				74E56BA0215FE22300B58258 /* Store.swift */,
-				748C16212168EA61009918A5 /* SBrick */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		7421408C215FB70C0052255C /* Screens */ = {
@@ -130,22 +174,23 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		742CE7A4216AAA890076501C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				742CE7A5216AADE50076501C /* Control.swift */,
-				742CE7B0216AC1970076501C /* Thumbstick.swift */,
-				742CE7AC216AB9820076501C /* Slider.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		742CE7A7216AB2040076501C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				742CE7A8216AB2150076501C /* CGPoint.swift */,
+				740D0235216ACFE2003B9BA8 /* UIColor.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		74631835216E9B0B00059C31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				740F79DD216A867A00A2D50D /* SliderView.swift */,
+				74EA6E4821644A5200A3D973 /* HorizontalSliderView.swift */,
+				74256E8921623AF600A464CB /* VerticalSliderView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		747AE28B215F13440083F261 = {
@@ -169,25 +214,44 @@
 		747AE296215F13440083F261 /* brick */ = {
 			isa = PBXGroup;
 			children = (
-				74B46D162160219E0009EC29 /* Components */,
+				74866B0C216BE109007D124E /* Shared */,
 				7421408C215FB70C0052255C /* Screens */,
 				747AE297215F13440083F261 /* AppDelegate.swift */,
-				742CE7A4216AAA890076501C /* Models */,
-				74A36DFE2161CB4C00E03650 /* Constants.swift */,
-				742CE7A7216AB2040076501C /* Extensions */,
-				7421408B215FB6F40052255C /* Services */,
+				74866B0F216BEA79007D124E /* RootWireframe.swift */,
 				747AE29E215F13450083F261 /* Assets.xcassets */,
 				747AE2A3215F13450083F261 /* Info.plist */,
-				74E56B9D215FE16000B58258 /* Model.xcdatamodeld */,
 			);
 			path = brick;
+			sourceTree = "<group>";
+		};
+		74866B0C216BE109007D124E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				748C16212168EA61009918A5 /* SBrick */,
+				74866B13216BEFD1007D124E /* Entities */,
+				742CE7A7216AB2040076501C /* Extensions */,
+				74B46D162160219E0009EC29 /* Components */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		74866B13216BEFD1007D124E /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				74E56B9D215FE16000B58258 /* Entities.xcdatamodeld */,
+				74866B11216BEF96007D124E /* CoreDataSource.swift */,
+				742CE7A5216AADE50076501C /* Control.swift */,
+				742CE7B0216AC1970076501C /* Stick.swift */,
+				742CE7AC216AB9820076501C /* Slider.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		748C16212168EA61009918A5 /* SBrick */ = {
 			isa = PBXGroup;
 			children = (
 				748C16222168EF4C009918A5 /* SBrickManager.swift */,
-				740F79D921691D1E00A2D50D /* SBrickPrimitives.swift */,
+				740F79D921691D1E00A2D50D /* SBrickCommand.swift */,
 				742CE7AA216AB8B90076501C /* SBrickPort.swift */,
 				740F79DB21697C5500A2D50D /* SBrickPayload.swift */,
 				748C16242168F6AA009918A5 /* SBrick.swift */,
@@ -198,9 +262,10 @@
 		748C3DBE216175A400DF0BCB /* AddProfile */ = {
 			isa = PBXGroup;
 			children = (
-				749290E221630B93001B1048 /* ControlSelectorView.swift */,
-				745D9B3D2163F6F900ED1127 /* RecycleBinView.swift */,
-				748C3DBC2161746D00DF0BCB /* AddProfileViewController.swift */,
+				740BEB8D216D287300F4343A /* View */,
+				740BEB89216D250800F4343A /* AddProfileWireframe.swift */,
+				740BEB8E216D2E4F00F4343A /* AddProfilePresenter.swift */,
+				740BEB90216D392800F4343A /* AddProfileInteractor.swift */,
 			);
 			path = AddProfile;
 			sourceTree = "<group>";
@@ -208,7 +273,7 @@
 		74B46D162160219E0009EC29 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				740F79DF216A87B300A2D50D /* Thumbstick */,
+				740F79DF216A87B300A2D50D /* Stick */,
 				748C161F21680A96009918A5 /* ControlView.swift */,
 				740F79E0216A87C600A2D50D /* Slider */,
 			);
@@ -218,9 +283,10 @@
 		74E56B99215FCED500B58258 /* Profiles */ = {
 			isa = PBXGroup;
 			children = (
-				747AE299215F13440083F261 /* ProfilesViewController.swift */,
-				748C161C2167D509009918A5 /* ProfilesCollectionLayout.swift */,
-				74E56B9A215FD47900B58258 /* ProfilesCellView.swift */,
+				740BEB8B216D282200F4343A /* View */,
+				74866B0D216BE2A3007D124E /* ProfilesWireframe.swift */,
+				74866B14216BF785007D124E /* ProfilesInteractor.swift */,
+				74866B16216BFD23007D124E /* ProfilesPresenter.swift */,
 			);
 			path = Profiles;
 			sourceTree = "<group>";
@@ -229,6 +295,9 @@
 			isa = PBXGroup;
 			children = (
 				74E56BC4215FF92200B58258 /* ProfileViewController.swift */,
+				7463182B216E4ADD00059C31 /* ProfileWireframe.swift */,
+				74631831216E507100059C31 /* ProfileInteractor.swift */,
+				7463182D216E4BA500059C31 /* ProfilePresenter.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -378,31 +447,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74E56B9B215FD47900B58258 /* ProfilesCellView.swift in Sources */,
-				74A36DFF2161CB4C00E03650 /* Constants.swift in Sources */,
+				74E56B9B215FD47900B58258 /* ProfilesViewCell.swift in Sources */,
 				747AE29A215F13440083F261 /* ProfilesViewController.swift in Sources */,
-				74E56B9F215FE16000B58258 /* Model.xcdatamodeld in Sources */,
-				74E56BA1215FE22300B58258 /* Store.swift in Sources */,
-				748C161D2167D509009918A5 /* ProfilesCollectionLayout.swift in Sources */,
+				74E56B9F215FE16000B58258 /* Entities.xcdatamodeld in Sources */,
+				7463182E216E4BA500059C31 /* ProfilePresenter.swift in Sources */,
+				748C161D2167D509009918A5 /* CarouselCollectionLayout.swift in Sources */,
 				742CE7AB216AB8B90076501C /* SBrickPort.swift in Sources */,
 				745D9B3E2163F6F900ED1127 /* RecycleBinView.swift in Sources */,
 				748C16232168EF4C009918A5 /* SBrickManager.swift in Sources */,
+				74866B0E216BE2A3007D124E /* ProfilesWireframe.swift in Sources */,
 				740F79DC21697C5500A2D50D /* SBrickPayload.swift in Sources */,
 				742CE7A6216AADE50076501C /* Control.swift in Sources */,
-				742CE7B1216AC1970076501C /* Thumbstick.swift in Sources */,
+				742CE7B1216AC1970076501C /* Stick.swift in Sources */,
+				74AD02DA216FC08D00AB117B /* StickWireframe.swift in Sources */,
+				740BEB8A216D250800F4343A /* AddProfileWireframe.swift in Sources */,
+				74AD02D8216FC06D00AB117B /* StickPresenter.swift in Sources */,
+				74631839216E9CC300059C31 /* SliderWireframe.swift in Sources */,
+				740BEB8F216D2E4F00F4343A /* AddProfilePresenter.swift in Sources */,
 				740F79DE216A867A00A2D50D /* SliderView.swift in Sources */,
 				748C3DBD2161746D00DF0BCB /* AddProfileViewController.swift in Sources */,
+				74631837216E9C2B00059C31 /* SliderInteractor.swift in Sources */,
 				748C162021680A96009918A5 /* ControlView.swift in Sources */,
 				742CE7AD216AB9820076501C /* Slider.swift in Sources */,
-				74B46D18216021E00009EC29 /* ThumbstickView.swift in Sources */,
+				74B46D18216021E00009EC29 /* StickView.swift in Sources */,
+				74631834216E99F100059C31 /* SliderPresenter.swift in Sources */,
+				74866B10216BEA79007D124E /* RootWireframe.swift in Sources */,
 				74E56BC5215FF92200B58258 /* ProfileViewController.swift in Sources */,
+				7463182C216E4ADD00059C31 /* ProfileWireframe.swift in Sources */,
 				749290E321630B93001B1048 /* ControlSelectorView.swift in Sources */,
 				742CE7A9216AB2150076501C /* CGPoint.swift in Sources */,
 				74EA6E4921644A5200A3D973 /* HorizontalSliderView.swift in Sources */,
 				747AE298215F13440083F261 /* AppDelegate.swift in Sources */,
+				74866B17216BFD23007D124E /* ProfilesPresenter.swift in Sources */,
+				74AD02DC216FC0AD00AB117B /* StickInteractor.swift in Sources */,
+				74866B12216BEF96007D124E /* CoreDataSource.swift in Sources */,
+				740D0236216ACFE2003B9BA8 /* UIColor.swift in Sources */,
+				740BEB91216D392800F4343A /* AddProfileInteractor.swift in Sources */,
 				748C16252168F6AA009918A5 /* SBrick.swift in Sources */,
-				740F79DA21691D1E00A2D50D /* SBrickPrimitives.swift in Sources */,
-				740F79E2216A87DF00A2D50D /* SliderController.swift in Sources */,
+				740F79DA21691D1E00A2D50D /* SBrickCommand.swift in Sources */,
+				74866B15216BF785007D124E /* ProfilesInteractor.swift in Sources */,
+				74631832216E507100059C31 /* ProfileInteractor.swift in Sources */,
 				74256E8A21623AF600A464CB /* VerticalSliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,13 +672,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		74E56B9D215FE16000B58258 /* Model.xcdatamodeld */ = {
+		74E56B9D215FE16000B58258 /* Entities.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				74E56B9E215FE16000B58258 /* Model.xcdatamodel */,
 			);
 			currentVersion = 74E56B9E215FE16000B58258 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			path = Entities.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
