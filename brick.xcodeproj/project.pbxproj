@@ -35,6 +35,8 @@
 		74866B12216BEF96007D124E /* CoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B11216BEF96007D124E /* CoreDataSource.swift */; };
 		74866B15216BF785007D124E /* ProfilesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B14216BF785007D124E /* ProfilesInteractor.swift */; };
 		74866B17216BFD23007D124E /* ProfilesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B16216BFD23007D124E /* ProfilesPresenter.swift */; };
+		748A990021738C45005CB73A /* ControlArrangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748A98FF21738C45005CB73A /* ControlArrangeView.swift */; };
+		748A990221738D32005CB73A /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748A990121738D32005CB73A /* CGSize.swift */; };
 		748C161D2167D509009918A5 /* CarouselCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C161C2167D509009918A5 /* CarouselCollectionLayout.swift */; };
 		748C162021680A96009918A5 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C161F21680A96009918A5 /* ControlView.swift */; };
 		748C16232168EF4C009918A5 /* SBrickSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C16222168EF4C009918A5 /* SBrickSource.swift */; };
@@ -86,6 +88,8 @@
 		74866B11216BEF96007D124E /* CoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSource.swift; sourceTree = "<group>"; };
 		74866B14216BF785007D124E /* ProfilesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesInteractor.swift; sourceTree = "<group>"; };
 		74866B16216BFD23007D124E /* ProfilesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesPresenter.swift; sourceTree = "<group>"; };
+		748A98FF21738C45005CB73A /* ControlArrangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlArrangeView.swift; sourceTree = "<group>"; };
+		748A990121738D32005CB73A /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
 		748C161C2167D509009918A5 /* CarouselCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionLayout.swift; sourceTree = "<group>"; };
 		748C161F21680A96009918A5 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
 		748C16222168EF4C009918A5 /* SBrickSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBrickSource.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				749290E221630B93001B1048 /* ControlSelectorView.swift */,
+				748A98FF21738C45005CB73A /* ControlArrangeView.swift */,
 				745D9B3D2163F6F900ED1127 /* RecycleBinView.swift */,
 				748C3DBC2161746D00DF0BCB /* AddProfileViewController.swift */,
 			);
@@ -180,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				742CE7A8216AB2150076501C /* CGPoint.swift */,
+				748A990121738D32005CB73A /* CGSize.swift */,
 				740D0235216ACFE2003B9BA8 /* UIColor.swift */,
 			);
 			path = Extensions;
@@ -452,11 +458,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				748A990221738D32005CB73A /* CGSize.swift in Sources */,
 				74E56B9B215FD47900B58258 /* ProfilesViewCell.swift in Sources */,
 				747AE29A215F13440083F261 /* ProfilesViewController.swift in Sources */,
 				74E56B9F215FE16000B58258 /* Entities.xcdatamodeld in Sources */,
 				7463182E216E4BA500059C31 /* ProfilePresenter.swift in Sources */,
 				748C161D2167D509009918A5 /* CarouselCollectionLayout.swift in Sources */,
+				748A990021738C45005CB73A /* ControlArrangeView.swift in Sources */,
 				742CE7AB216AB8B90076501C /* SBrickPort.swift in Sources */,
 				745D9B3E2163F6F900ED1127 /* RecycleBinView.swift in Sources */,
 				748C16232168EF4C009918A5 /* SBrickSource.swift in Sources */,

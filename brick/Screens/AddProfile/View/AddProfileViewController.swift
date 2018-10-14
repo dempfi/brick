@@ -1,11 +1,17 @@
 import UIKit
 import SnapKit
 
+func roundToTens(_ point: CGPoint) -> CGPoint {
+  let x = 10 * Int(round(point.x / 10))
+  let y = 10 * Int(round(point.y / 10))
+  return CGPoint(x: x, y: y)
+}
+
 class AddProfileViewController: UIViewController {
   weak var presenter: AddProfilePresenter?
 
-  var controlViews = [UUID: UIView]()
-  var activeControlView: (key: UUID, value: UIView)?
+  var controls = [UUID: ControlArrangeView]()
+  var activeControl: (key: UUID, value: ControlArrangeView)?
 
   let selectorView = ControlSelectorView()
   let recycleBinView = RecycleBinView()
@@ -78,10 +84,16 @@ class AddProfileViewController: UIViewController {
     case .stick: control = StickView()
     }
 
-    control.center = view.center
-    controlViews[id] = control
-    view.insertSubview(control, belowSubview: selectorView)
-    presenter?.positionControl(id, at: control.frame.origin)
+    let wrapper = ControlArrangeView(for: control)
+    view.insertSubview(wrapper, belowSubview: selectorView)
+    wrapper.onLinkTap = { self.presenter?.link(id: id) }
+    wrapper.center = view.center
+    controls[id] = wrapper
+    presenter?.positionControl(id, at: wrapper.controlOrigin)
+  }
+
+  func setConnected(id: UUID) {
+    controls[id]?.isConnected = true
   }
 
   @objc func onPan(recognizer: UIPanGestureRecognizer) {
@@ -89,26 +101,35 @@ class AddProfileViewController: UIViewController {
 
     switch recognizer.state {
     case .began:
-      guard let target = view.hitTest(touchPoint, with: nil) else { return }
-      guard let controlTarget = controlViews.first(where: { $1 == target }) else { return }
-      activeControlView = controlTarget
-      recycleBinView.isHidden = false
+      guard let targetView = view.hitTest(touchPoint, with: nil) else { return }
+      guard let control = controls.first(where: { $1 == targetView }) else { return }
+      activeControl = control
+      activeControl!.value.isMoving = true
+      activeControl!.value.diff = roundToTens(targetView.center - touchPoint)
+      recycleBinView.reveal()
 
     case .changed:
-      guard let (id, subview) = activeControlView else { return }
-      subview.center = touchPoint - touchPoint % 10
-      presenter?.positionControl(id, at: subview.frame.origin)
+      guard let (id, subview) = activeControl else { return }
+      UIView.animate(withDuration: 0.1, animations: {
+        subview.center = touchPoint - touchPoint % 10 + subview.diff
+      })
+      presenter?.positionControl(id, at: subview.controlOrigin)
 
     case .ended:
       let target = view.hitTest(touchPoint, with: nil)
-      recycleBinView.isHidden = true
+      recycleBinView.hide()
+
+      guard let (id, subview) = activeControl else { return }
+      activeControl = nil
+      subview.isMoving = false
+      subview.diff = .zero
+
       guard target == recycleBinView else { return }
-      guard let (id, subview) = activeControlView else { return }
-      controlViews.removeValue(forKey: id)
+      controls.removeValue(forKey: id)
       subview.removeFromSuperview()
       presenter?.removeControl(id)
 
-    default: activeControlView = nil
+    default: activeControl = nil
     }
   }
 }

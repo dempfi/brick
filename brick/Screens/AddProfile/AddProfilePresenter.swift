@@ -22,6 +22,10 @@ class AddProfilePresenter {
     wireframe?.dismissInterface()
   }
 
+  func link(id controlId: UUID) {
+    view.setConnected(id: controlId)
+  }
+
   func newControl(_ type: Control.type) {
     let id = UUID()
     controlGrid[id] = (type, CGPoint.zero)

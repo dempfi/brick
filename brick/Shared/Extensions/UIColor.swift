@@ -10,6 +10,10 @@ extension UIColor {
   }
 
   static var accent: UIColor {
-    return UIColor(red: 0.56, green: 0.69, blue: 0.21, alpha: 1.00)
+    return UIColor(red: 1.00, green: 0.86, blue: 0.60, alpha: 1.00)
+  }
+
+  static var panel: UIColor {
+    return UIColor(red: 0.09, green: 0.09, blue: 0.10, alpha: 1.00)
   }
 }

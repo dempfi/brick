@@ -8,7 +8,7 @@ class ControlSelectorView: UIView {
   }
 
   override func draw(_ rect: CGRect) {
-    layer.backgroundColor = UIColor(red: 0.14, green: 0.14, blue: 0.15, alpha: 1.00).cgColor
+    layer.backgroundColor = UIColor.panel.cgColor
     layer.cornerRadius = 10
 
     let stickButton = UIButton(frame: CGRect(x: 27, y: 11, width: 28, height: 28))
