@@ -2,8 +2,6 @@ import Foundation
 import CoreData
 import UIKit
 
-typealias SBrickLink = (id: String, port: SBrickPort.id)
-
 @objc(Control)
 public class Control: NSManagedObject {
   // swiftlint:disable type_name
@@ -13,8 +11,9 @@ public class Control: NSManagedObject {
     case horizontalSlider = 2
   }
 
-  @NSManaged var profile: Profile
   @NSManaged var type: type
+  @NSManaged var links: Set<Link>
+  @NSManaged var profile: Profile
   @NSManaged private var x: Float
   @NSManaged private var y: Float
 
@@ -33,4 +32,16 @@ extension Control {
   @nonobjc public class func fetchRequest() -> NSFetchRequest<Control> {
     return NSFetchRequest<Control>(entityName: "Control")
   }
+
+  @objc(addLinksObject:)
+  @NSManaged public func addToLinks(_ value: Link)
+
+  @objc(removeLinksObject:)
+  @NSManaged public func removeFromLinks(_ value: Link)
+
+  @objc(addLinks:)
+  @NSManaged public func addToLinks(_ values: Set<Link>)
+
+  @objc(removeLinks:)
+  @NSManaged public func removeFromLinks(_ values: Set<Link>)
 }

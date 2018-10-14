@@ -1,6 +1,9 @@
 import CoreData
+import Bluebird
 
 class CoreDataSource {
+  typealias Init<T> = (_: T) -> Void
+
   private static var persistentContainer: NSPersistentContainer!
   private static var managedObjectContext: NSManagedObjectContext!
 
@@ -24,29 +27,38 @@ class CoreDataSource {
     }
   }
 
-  func fetch <T: NSManagedObject> (_ entity: T.Type, sort: [NSSortDescriptor], _ onDone: @escaping (_: [T]) -> Void) {
+  func fetch <T: NSManagedObject> (_ entity: T.Type, sort: [NSSortDescriptor]) -> Promise<[T]> {
     let fetchRequest = entity.fetchRequest()
     fetchRequest.sortDescriptors = sort
 
-    CoreDataSource.managedObjectContext.perform {
-      let result = try? CoreDataSource.managedObjectContext.fetch(fetchRequest)
-      // swiftlint:disable force_cast
-      onDone(result! as! [T])
+    return Promise<[T]> { resolve, _ in
+      CoreDataSource.managedObjectContext.perform {
+        let result = try? CoreDataSource.managedObjectContext.fetch(fetchRequest)
+        // swiftlint:disable force_cast
+        resolve(result! as! [T])
+      }
     }
   }
 
-  func profile() -> Profile {
+  func profile(_ block: ((_:Profile) -> Void)? = nil) -> Profile {
     let profile = Profile(context: CoreDataSource.managedObjectContext)
     profile.timestamp = Date()
+    if let block = block { block(profile) }
     return profile
   }
 
-  func stick() -> Stick {
-    return Stick(context: CoreDataSource.managedObjectContext)
+  func control(_ block: ((_:Control) -> Void)? = nil) -> Control {
+    let control = Control(context: CoreDataSource.managedObjectContext)
+    if let block = block { block(control) }
+    return control
   }
 
-  func slider() -> Slider {
-    return Slider(context: CoreDataSource.managedObjectContext)
+  func link(_ block: ((_:Link) -> Void)? = nil) -> Link {
+    let link = Link(context: CoreDataSource.managedObjectContext)
+    link.polarity = .positive
+    link.axis = .universal
+    if let block = block { block(link) }
+    return link
   }
 
   func save() {

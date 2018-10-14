@@ -1,16 +1,29 @@
 PODS:
+  - Bluebird (4.0.0)
   - SnapKit (4.0.1)
 
 DEPENDENCIES:
+  - Bluebird (from `https://github.com/AndrewBarba/Bluebird.swift.git`, tag `4.0.0`)
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - SnapKit
 
+EXTERNAL SOURCES:
+  Bluebird:
+    :git: https://github.com/AndrewBarba/Bluebird.swift.git
+    :tag: 4.0.0
+
+CHECKOUT OPTIONS:
+  Bluebird:
+    :git: https://github.com/AndrewBarba/Bluebird.swift.git
+    :tag: 4.0.0
+
 SPEC CHECKSUMS:
+  Bluebird: 7611f16127adbb34360f66ecd28130bbf0d60082
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
 
-PODFILE CHECKSUM: d0018b302d326f7ca2578f01ed1ad4f264e99607
+PODFILE CHECKSUM: c0d61f6db0bf5c639902ad94bda2de28a3f5e3a8
 
 COCOAPODS: 1.5.3

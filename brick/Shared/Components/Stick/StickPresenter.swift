@@ -4,9 +4,8 @@ class StickPresenter {
   var interactor: StickInteractor
   var view: StickView? { didSet { view?.handler = interactor.powerChanged } }
 
-  init(for stick: Stick) {
+  init(for control: Control) {
     interactor = StickInteractor()
-    interactor.linkY = stick.linkY
-    interactor.linkX = stick.linkX
+    interactor.links = control.links
   }
 }

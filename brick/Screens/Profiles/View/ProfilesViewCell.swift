@@ -28,7 +28,7 @@ class ProfilesViewCell: UICollectionViewCell {
   public func redraw() {
     contentView.subviews.forEach { $0.removeFromSuperview() }
 
-    for case let control as Control in profile.controls! {
+    for control in profile.controls {
       var view: UIView!
       let origin = control.origin * ratio + margins
 

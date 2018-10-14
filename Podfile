@@ -7,4 +7,5 @@ target 'brick' do
 
   # Pods for brick
   pod "SnapKit"
+  pod "Bluebird", :git => "https://github.com/AndrewBarba/Bluebird.swift.git", :tag => "4.0.0"
 end

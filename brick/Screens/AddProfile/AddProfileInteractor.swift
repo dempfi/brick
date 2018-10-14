@@ -7,19 +7,32 @@ class AddProfileInteractor {
     let profile = dataStore.profile()
 
     for (type, origin) in controls {
+      let control = dataStore.control {
+        $0.profile = profile
+        $0.origin = origin
+        $0.type = type
+      }
+
       if type == .stick {
-        let control = dataStore.stick()
-        control.type = .stick
-        control.profile = profile
-        control.origin = origin
-        control.linkX = ("68:20:7B:B1:8C:50", SBrickPort.id.port1)
-        control.linkY = ("68:20:7B:B1:8C:50", SBrickPort.id.port2)
+        _ = dataStore.link {
+          $0.axis = .x
+          $0.port = .port1
+          $0.sbrick = "68:20:7B:B1:8C:50"
+          $0.control = control
+        }
+
+        _ = dataStore.link {
+          $0.axis = .y
+          $0.port = .port2
+          $0.sbrick = "68:20:7B:B1:8C:50"
+          $0.control = control
+        }
       } else {
-        let control = dataStore.slider()
-        control.profile = profile
-        control.link = ("68:20:7B:B1:8C:50", SBrickPort.id.port1)
-        control.origin = origin
-        control.type = type
+        _ = dataStore.link {
+          $0.port = .port1
+          $0.sbrick = "68:20:7B:B1:8C:50"
+          $0.control = control
+        }
       }
     }
 

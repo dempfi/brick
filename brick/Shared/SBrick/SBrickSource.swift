@@ -1,17 +1,12 @@
 import Foundation
 import CoreBluetooth
+import Bluebird
 
 class SBrickSource: NSObject {
-  typealias LookupTask = (
-    id: String,
-    onSuccess: (_: SBrick) -> Void,
-    onFailure: ((_: String) -> Void)?
-  )
-
   var sbricks = Set<SBrick>()
   private var shouldScan = false
   private var centralManager: CBCentralManager!
-  private var scanQueue = [LookupTask]()
+  private var scanQueue = [(id: String, resolver: Promise<SBrick>.Resolver)]()
 
   static let shared = SBrickSource()
 
@@ -20,15 +15,15 @@ class SBrickSource: NSObject {
     self.centralManager = CBCentralManager(delegate: self, queue: nil)
   }
 
-  func lookup(_ id: String, onSuccess: @escaping (_: SBrick) -> Void) {
+  func lookup(_ id: String) -> Promise<SBrick> {
     if let sbrick = sbricks.first(where: { $0.id == id }) {
-      onSuccess(sbrick)
-      return
+      return Promise(resolve: sbrick)
     }
 
-    scanQueue.append(LookupTask(id: id, onSuccess: onSuccess, onFailure: nil))
-    if centralManager.isScanning { return }
-    lookupAny()
+    let resolver = Promise<SBrick>.defer()
+    scanQueue.append((id, resolver))
+    if !centralManager.isScanning { lookupAny() }
+    return resolver.promise
   }
 
   func lookupAny() {
@@ -64,7 +59,7 @@ extension SBrickSource: CBCentralManagerDelegate {
     for task in scanQueue {
       if task.id != sbrick.id { continue }
       connect(to: sbrick)
-      task.onSuccess(sbrick)
+      task.resolver.resolve(sbrick)
     }
 
     scanQueue.removeAll(where: { $0.id == sbrick.id })

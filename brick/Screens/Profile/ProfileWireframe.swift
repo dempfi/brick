@@ -10,11 +10,11 @@ class ProfileWireframe {
     rootWireframe?.pushViewController(presenter!.view)
   }
 
-  func presentSlider(in view: UIView, with slider: Slider) {
-    rootWireframe?.sliderWireframe.presentSlider(in: view, with: slider)
+  func presentSlider(in view: UIView, with control: Control) {
+    rootWireframe?.sliderWireframe.presentSlider(in: view, with: control)
   }
 
-  func presentStick(in view: UIView, with stick: Stick) {
-    rootWireframe?.stickWireframe.presentStick(in: view, with: stick)
+  func presentStick(in view: UIView, with control: Control) {
+    rootWireframe?.stickWireframe.presentStick(in: view, with: control)
   }
 }

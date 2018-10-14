@@ -3,9 +3,9 @@ import UIKit
 class StickWireframe {
   var presenter: StickPresenter?
 
-  func presentStick(in view: UIView, with stick: Stick) {
-    presenter = StickPresenter(for: stick)
-    presenter!.view = StickView(at: stick.origin)
+  func presentStick(in view: UIView, with control: Control) {
+    presenter = StickPresenter(for: control)
+    presenter!.view = StickView(at: control.origin)
     view.addSubview(presenter!.view!)
   }
 }

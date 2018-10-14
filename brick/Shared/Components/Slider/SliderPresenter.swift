@@ -4,8 +4,8 @@ class SliderPresenter {
   var interactor: SliderInteractor
   var view: SliderView? { didSet { view?.handler = interactor.powerChanged } }
 
-  init(for slider: Slider) {
+  init(for control: Control) {
     interactor = SliderInteractor()
-    interactor.link = slider.link
+    interactor.links = control.links
   }
 }

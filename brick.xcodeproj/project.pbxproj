@@ -18,8 +18,6 @@
 		742CE7A6216AADE50076501C /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE7A5216AADE50076501C /* Control.swift */; };
 		742CE7A9216AB2150076501C /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE7A8216AB2150076501C /* CGPoint.swift */; };
 		742CE7AB216AB8B90076501C /* SBrickPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE7AA216AB8B90076501C /* SBrickPort.swift */; };
-		742CE7AD216AB9820076501C /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE7AC216AB9820076501C /* Slider.swift */; };
-		742CE7B1216AC1970076501C /* Stick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE7B0216AC1970076501C /* Stick.swift */; };
 		745D9B3E2163F6F900ED1127 /* RecycleBinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D9B3D2163F6F900ED1127 /* RecycleBinView.swift */; };
 		7463182C216E4ADD00059C31 /* ProfileWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463182B216E4ADD00059C31 /* ProfileWireframe.swift */; };
 		7463182E216E4BA500059C31 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463182D216E4BA500059C31 /* ProfilePresenter.swift */; };
@@ -30,6 +28,7 @@
 		747AE298215F13440083F261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747AE297215F13440083F261 /* AppDelegate.swift */; };
 		747AE29A215F13440083F261 /* ProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747AE299215F13440083F261 /* ProfilesViewController.swift */; };
 		747AE29F215F13450083F261 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747AE29E215F13450083F261 /* Assets.xcassets */; };
+		747F2332217111AB00ABD8C7 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747F2331217111AB00ABD8C7 /* Link.swift */; };
 		7485C85721700B1F0015CC6C /* ControlInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7485C85621700B1F0015CC6C /* ControlInteractor.swift */; };
 		74866B0E216BE2A3007D124E /* ProfilesWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B0D216BE2A3007D124E /* ProfilesWireframe.swift */; };
 		74866B10216BEA79007D124E /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B0F216BEA79007D124E /* RootWireframe.swift */; };
@@ -46,6 +45,7 @@
 		74AD02DA216FC08D00AB117B /* StickWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD02D9216FC08D00AB117B /* StickWireframe.swift */; };
 		74AD02DC216FC0AD00AB117B /* StickInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD02DB216FC0AD00AB117B /* StickInteractor.swift */; };
 		74B46D18216021E00009EC29 /* StickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B46D17216021E00009EC29 /* StickView.swift */; };
+		74B99971217113BB004875DF /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B99970217113BB004875DF /* Profile.swift */; };
 		74E56B9B215FD47900B58258 /* ProfilesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E56B9A215FD47900B58258 /* ProfilesViewCell.swift */; };
 		74E56B9F215FE16000B58258 /* Entities.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74E56B9D215FE16000B58258 /* Entities.xcdatamodeld */; };
 		74E56BC5215FF92200B58258 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E56BC4215FF92200B58258 /* ProfileViewController.swift */; };
@@ -67,8 +67,6 @@
 		742CE7A5216AADE50076501C /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 		742CE7A8216AB2150076501C /* CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
 		742CE7AA216AB8B90076501C /* SBrickPort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBrickPort.swift; sourceTree = "<group>"; };
-		742CE7AC216AB9820076501C /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
-		742CE7B0216AC1970076501C /* Stick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stick.swift; sourceTree = "<group>"; };
 		745D9B3D2163F6F900ED1127 /* RecycleBinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleBinView.swift; sourceTree = "<group>"; };
 		7463182B216E4ADD00059C31 /* ProfileWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWireframe.swift; sourceTree = "<group>"; };
 		7463182D216E4BA500059C31 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
@@ -81,6 +79,7 @@
 		747AE299215F13440083F261 /* ProfilesViewController.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ProfilesViewController.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		747AE29E215F13450083F261 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		747AE2A3215F13450083F261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		747F2331217111AB00ABD8C7 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		7485C85621700B1F0015CC6C /* ControlInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlInteractor.swift; sourceTree = "<group>"; };
 		74866B0D216BE2A3007D124E /* ProfilesWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesWireframe.swift; sourceTree = "<group>"; };
 		74866B0F216BEA79007D124E /* RootWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
@@ -97,6 +96,7 @@
 		74AD02D9216FC08D00AB117B /* StickWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickWireframe.swift; sourceTree = "<group>"; };
 		74AD02DB216FC0AD00AB117B /* StickInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickInteractor.swift; sourceTree = "<group>"; };
 		74B46D17216021E00009EC29 /* StickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickView.swift; sourceTree = "<group>"; };
+		74B99970217113BB004875DF /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		74E56B9A215FD47900B58258 /* ProfilesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesViewCell.swift; sourceTree = "<group>"; };
 		74E56B9E215FE16000B58258 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		74E56BC4215FF92200B58258 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -243,8 +243,8 @@
 				74E56B9D215FE16000B58258 /* Entities.xcdatamodeld */,
 				74866B11216BEF96007D124E /* CoreDataSource.swift */,
 				742CE7A5216AADE50076501C /* Control.swift */,
-				742CE7B0216AC1970076501C /* Stick.swift */,
-				742CE7AC216AB9820076501C /* Slider.swift */,
+				747F2331217111AB00ABD8C7 /* Link.swift */,
+				74B99970217113BB004875DF /* Profile.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -391,12 +391,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-brick/Pods-brick-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bluebird/Bluebird.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bluebird.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,7 +463,6 @@
 				74866B0E216BE2A3007D124E /* ProfilesWireframe.swift in Sources */,
 				740F79DC21697C5500A2D50D /* SBrickPayload.swift in Sources */,
 				742CE7A6216AADE50076501C /* Control.swift in Sources */,
-				742CE7B1216AC1970076501C /* Stick.swift in Sources */,
 				74AD02DA216FC08D00AB117B /* StickWireframe.swift in Sources */,
 				740BEB8A216D250800F4343A /* AddProfileWireframe.swift in Sources */,
 				74AD02D8216FC06D00AB117B /* StickPresenter.swift in Sources */,
@@ -472,7 +473,7 @@
 				748C3DBD2161746D00DF0BCB /* AddProfileViewController.swift in Sources */,
 				74631837216E9C2B00059C31 /* SliderInteractor.swift in Sources */,
 				748C162021680A96009918A5 /* ControlView.swift in Sources */,
-				742CE7AD216AB9820076501C /* Slider.swift in Sources */,
+				747F2332217111AB00ABD8C7 /* Link.swift in Sources */,
 				74B46D18216021E00009EC29 /* StickView.swift in Sources */,
 				74631834216E99F100059C31 /* SliderPresenter.swift in Sources */,
 				74866B10216BEA79007D124E /* RootWireframe.swift in Sources */,
@@ -490,6 +491,7 @@
 				748C16252168F6AA009918A5 /* SBrick.swift in Sources */,
 				740F79DA21691D1E00A2D50D /* SBrickCommand.swift in Sources */,
 				74866B15216BF785007D124E /* ProfilesInteractor.swift in Sources */,
+				74B99971217113BB004875DF /* Profile.swift in Sources */,
 				74631832216E507100059C31 /* ProfileInteractor.swift in Sources */,
 				74256E8A21623AF600A464CB /* VerticalSliderView.swift in Sources */,
 			);

@@ -12,11 +12,12 @@ class ProfilePresenter {
   }
 
   func updateView() {
-    for case let slider as Slider in profile.controls! {
-      wireframe?.presentSlider(in: view.view, with: slider)
-    }
-    for case let stick as Stick in profile.controls! {
-      wireframe?.presentStick(in: view.view, with: stick)
+    for control in profile.controls {
+      if control.type == .stick {
+        wireframe?.presentStick(in: view.view, with: control)
+      } else {
+        wireframe?.presentSlider(in: view.view, with: control)
+      }
     }
   }
 }

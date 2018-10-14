@@ -11,7 +11,7 @@ class ProfilesPresenter {
   }
 
   func updateView() {
-    interactor.fetchProfiles(view.showProfiles)
+    interactor.fetchProfiles().then(view.showProfiles)
   }
 
   func addProfile() {
