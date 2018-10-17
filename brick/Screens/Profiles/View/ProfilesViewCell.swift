@@ -13,7 +13,8 @@ class ProfilesViewCell: UICollectionViewCell {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
-    backgroundView = UIImageView(image: UIImage(named: "CellBackground"))
+    backgroundColor = UIColor.panel
+    layer.cornerRadius = 20
     let screen = UIScreen.main.bounds
     ratio = min(frame.width / screen.width, frame.height / screen.height)
     let xMargin = (frame.width - ratio * screen.width) / 2

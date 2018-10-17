@@ -1,19 +1,26 @@
 import UIKit
 
 extension UIColor {
-  static var background: UIColor {
-    return UIColor.black
+  convenience init(hex: Int) {
+    let red = CGFloat((hex >> 16) & 0xFF) / 255
+    let green = CGFloat((hex >> 8) & 0xFF) / 255
+    let blue = CGFloat(hex & 0xFF) / 255
+    self.init(displayP3Red: red, green: green, blue: blue, alpha: 1)
   }
 
-  static var silver: UIColor {
-    return UIColor(red: 0.95, green: 0.98, blue: 1.00, alpha: 1.00)
+  static var background: UIColor {
+    return UIColor(hex: 0x13131A)
+  }
+
+  static var foreground: UIColor {
+    return UIColor(hex: 0xAAAAB3)
   }
 
   static var accent: UIColor {
-    return UIColor(red: 1.00, green: 0.86, blue: 0.60, alpha: 1.00)
+    return UIColor(hex: 0xEC3963)
   }
 
   static var panel: UIColor {
-    return UIColor(red: 0.09, green: 0.09, blue: 0.10, alpha: 1.00)
+    return UIColor(hex: 0x1F1F24)
   }
 }

@@ -17,10 +17,7 @@ class ControlArrangeView: UIView {
   var onLinkTap: (() -> Void)?
 
   private var controlView: UIView
-  private var linkIconView = UIImageView(
-    image: UIImage(named: "PlugDisconnected"),
-    highlightedImage: UIImage(named: "PlugConnected")
-  )
+  private var linkIconView = Icon(type: .plug)
 
   init(for controlView: UIView) {
     self.controlView = controlView
@@ -51,6 +48,7 @@ class ControlArrangeView: UIView {
     controlView.isUserInteractionEnabled = false
 
     addSubview(linkIconView)
+    linkIconView.tintColor = UIColor.foreground
     linkIconView.snp.makeConstraints { make in
       make.trailing.equalTo(self).inset(10)
       make.top.equalTo(self).inset(10)

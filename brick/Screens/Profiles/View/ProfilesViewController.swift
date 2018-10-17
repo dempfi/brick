@@ -42,12 +42,8 @@ class ProfilesViewController: UICollectionViewController {
 
   func configureNavbar() {
     title = "Profiles"
-    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addProfile))
+    let addButton = BarButton(.add, onTap: presenter?.addProfile)
     navigationController?.navigationBar.topItem?.rightBarButtonItem = addButton
-  }
-
-  @objc func addProfile(sender: UIButton) {
-    presenter?.addProfile()
   }
 }
 

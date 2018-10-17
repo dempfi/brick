@@ -14,11 +14,12 @@
 		740F79DA21691D1E00A2D50D /* SBrickCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F79D921691D1E00A2D50D /* SBrickCommand.swift */; };
 		740F79DC21697C5500A2D50D /* SBrickPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F79DB21697C5500A2D50D /* SBrickPayload.swift */; };
 		740F79DE216A867A00A2D50D /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F79DD216A867A00A2D50D /* SliderView.swift */; };
+		74151E0D21776A9900F00C6A /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74151E0C21776A9900F00C6A /* Icon.swift */; };
 		74256E8A21623AF600A464CB /* VerticalSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74256E8921623AF600A464CB /* VerticalSliderView.swift */; };
 		742CE7A6216AADE50076501C /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE7A5216AADE50076501C /* Control.swift */; };
 		742CE7A9216AB2150076501C /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE7A8216AB2150076501C /* CGPoint.swift */; };
 		742CE7AB216AB8B90076501C /* SBrickPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE7AA216AB8B90076501C /* SBrickPort.swift */; };
-		745D9B3E2163F6F900ED1127 /* RecycleBinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D9B3D2163F6F900ED1127 /* RecycleBinView.swift */; };
+		745D9B3E2163F6F900ED1127 /* TrashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D9B3D2163F6F900ED1127 /* TrashView.swift */; };
 		7463182C216E4ADD00059C31 /* ProfileWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463182B216E4ADD00059C31 /* ProfileWireframe.swift */; };
 		7463182E216E4BA500059C31 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463182D216E4BA500059C31 /* ProfilePresenter.swift */; };
 		74631832216E507100059C31 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74631831216E507100059C31 /* ProfileInteractor.swift */; };
@@ -42,16 +43,18 @@
 		748C16232168EF4C009918A5 /* SBrickSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C16222168EF4C009918A5 /* SBrickSource.swift */; };
 		748C16252168F6AA009918A5 /* SBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C16242168F6AA009918A5 /* SBrick.swift */; };
 		748C3DBD2161746D00DF0BCB /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C3DBC2161746D00DF0BCB /* AddProfileViewController.swift */; };
-		749290E321630B93001B1048 /* ControlSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749290E221630B93001B1048 /* ControlSelectorView.swift */; };
+		749290E321630B93001B1048 /* ControlMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749290E221630B93001B1048 /* ControlMenuViewController.swift */; };
 		74AD02D8216FC06D00AB117B /* StickPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD02D7216FC06D00AB117B /* StickPresenter.swift */; };
 		74AD02DA216FC08D00AB117B /* StickWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD02D9216FC08D00AB117B /* StickWireframe.swift */; };
 		74AD02DC216FC0AD00AB117B /* StickInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD02DB216FC0AD00AB117B /* StickInteractor.swift */; };
 		74B46D18216021E00009EC29 /* StickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B46D17216021E00009EC29 /* StickView.swift */; };
 		74B99971217113BB004875DF /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B99970217113BB004875DF /* Profile.swift */; };
+		74C5D033217524FD00569378 /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5D032217524FD00569378 /* UIBarButtonItem.swift */; };
 		74E56B9B215FD47900B58258 /* ProfilesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E56B9A215FD47900B58258 /* ProfilesViewCell.swift */; };
 		74E56B9F215FE16000B58258 /* Entities.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74E56B9D215FE16000B58258 /* Entities.xcdatamodeld */; };
 		74E56BC5215FF92200B58258 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E56BC4215FF92200B58258 /* ProfileViewController.swift */; };
 		74EA6E4921644A5200A3D973 /* HorizontalSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EA6E4821644A5200A3D973 /* HorizontalSliderView.swift */; };
+		74F3E948217752EA0048CB1D /* BarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F3E947217752EA0048CB1D /* BarButton.swift */; };
 		75AD71DC337443B2ACE15DF7 /* Pods_brick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC8834258B5834575FAEA39 /* Pods_brick.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,11 +68,12 @@
 		740F79D921691D1E00A2D50D /* SBrickCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBrickCommand.swift; sourceTree = "<group>"; };
 		740F79DB21697C5500A2D50D /* SBrickPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBrickPayload.swift; sourceTree = "<group>"; };
 		740F79DD216A867A00A2D50D /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		74151E0C21776A9900F00C6A /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		74256E8921623AF600A464CB /* VerticalSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSliderView.swift; sourceTree = "<group>"; };
 		742CE7A5216AADE50076501C /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 		742CE7A8216AB2150076501C /* CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
 		742CE7AA216AB8B90076501C /* SBrickPort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBrickPort.swift; sourceTree = "<group>"; };
-		745D9B3D2163F6F900ED1127 /* RecycleBinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleBinView.swift; sourceTree = "<group>"; };
+		745D9B3D2163F6F900ED1127 /* TrashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashView.swift; sourceTree = "<group>"; };
 		7463182B216E4ADD00059C31 /* ProfileWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWireframe.swift; sourceTree = "<group>"; };
 		7463182D216E4BA500059C31 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		74631831216E507100059C31 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
@@ -95,16 +99,18 @@
 		748C16222168EF4C009918A5 /* SBrickSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBrickSource.swift; sourceTree = "<group>"; };
 		748C16242168F6AA009918A5 /* SBrick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBrick.swift; sourceTree = "<group>"; };
 		748C3DBC2161746D00DF0BCB /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
-		749290E221630B93001B1048 /* ControlSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlSelectorView.swift; sourceTree = "<group>"; };
+		749290E221630B93001B1048 /* ControlMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlMenuViewController.swift; sourceTree = "<group>"; };
 		74AD02D7216FC06D00AB117B /* StickPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickPresenter.swift; sourceTree = "<group>"; };
 		74AD02D9216FC08D00AB117B /* StickWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickWireframe.swift; sourceTree = "<group>"; };
 		74AD02DB216FC0AD00AB117B /* StickInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickInteractor.swift; sourceTree = "<group>"; };
 		74B46D17216021E00009EC29 /* StickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickView.swift; sourceTree = "<group>"; };
 		74B99970217113BB004875DF /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		74C5D032217524FD00569378 /* UIBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		74E56B9A215FD47900B58258 /* ProfilesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesViewCell.swift; sourceTree = "<group>"; };
 		74E56B9E215FE16000B58258 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		74E56BC4215FF92200B58258 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		74EA6E4821644A5200A3D973 /* HorizontalSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSliderView.swift; sourceTree = "<group>"; };
+		74F3E947217752EA0048CB1D /* BarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButton.swift; sourceTree = "<group>"; };
 		B5FE2CFD07D044CB4CDEF1EE /* Pods-brick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-brick.release.xcconfig"; path = "Pods/Target Support Files/Pods-brick/Pods-brick.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,9 +147,9 @@
 		740BEB8D216D287300F4343A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				749290E221630B93001B1048 /* ControlSelectorView.swift */,
+				749290E221630B93001B1048 /* ControlMenuViewController.swift */,
 				748A98FF21738C45005CB73A /* ControlArrangeView.swift */,
-				745D9B3D2163F6F900ED1127 /* RecycleBinView.swift */,
+				745D9B3D2163F6F900ED1127 /* TrashView.swift */,
 				748C3DBC2161746D00DF0BCB /* AddProfileViewController.swift */,
 			);
 			path = View;
@@ -185,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				742CE7A8216AB2150076501C /* CGPoint.swift */,
+				74C5D032217524FD00569378 /* UIBarButtonItem.swift */,
 				748A990121738D32005CB73A /* CGSize.swift */,
 				740D0235216ACFE2003B9BA8 /* UIColor.swift */,
 			);
@@ -281,10 +288,9 @@
 		74B46D162160219E0009EC29 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				740F79DF216A87B300A2D50D /* Stick */,
-				748C161F21680A96009918A5 /* ControlView.swift */,
-				7485C85621700B1F0015CC6C /* ControlInteractor.swift */,
-				740F79E0216A87C600A2D50D /* Slider */,
+				74151E0C21776A9900F00C6A /* Icon.swift */,
+				74F3E947217752EA0048CB1D /* BarButton.swift */,
+				74F3E946217752CF0048CB1D /* Controls */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -309,6 +315,17 @@
 				7463182D216E4BA500059C31 /* ProfilePresenter.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		74F3E946217752CF0048CB1D /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				740F79DF216A87B300A2D50D /* Stick */,
+				748C161F21680A96009918A5 /* ControlView.swift */,
+				7485C85621700B1F0015CC6C /* ControlInteractor.swift */,
+				740F79E0216A87C600A2D50D /* Slider */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 		970CF5E6E43F3144BA6B406A /* Pods */ = {
@@ -466,7 +483,7 @@
 				748C161D2167D509009918A5 /* CarouselCollectionLayout.swift in Sources */,
 				748A990021738C45005CB73A /* ControlArrangeView.swift in Sources */,
 				742CE7AB216AB8B90076501C /* SBrickPort.swift in Sources */,
-				745D9B3E2163F6F900ED1127 /* RecycleBinView.swift in Sources */,
+				745D9B3E2163F6F900ED1127 /* TrashView.swift in Sources */,
 				748C16232168EF4C009918A5 /* SBrickSource.swift in Sources */,
 				74866B0E216BE2A3007D124E /* ProfilesWireframe.swift in Sources */,
 				740F79DC21697C5500A2D50D /* SBrickPayload.swift in Sources */,
@@ -487,14 +504,17 @@
 				74866B10216BEA79007D124E /* RootWireframe.swift in Sources */,
 				74E56BC5215FF92200B58258 /* ProfileViewController.swift in Sources */,
 				7463182C216E4ADD00059C31 /* ProfileWireframe.swift in Sources */,
-				749290E321630B93001B1048 /* ControlSelectorView.swift in Sources */,
+				749290E321630B93001B1048 /* ControlMenuViewController.swift in Sources */,
 				742CE7A9216AB2150076501C /* CGPoint.swift in Sources */,
 				74EA6E4921644A5200A3D973 /* HorizontalSliderView.swift in Sources */,
 				747AE298215F13440083F261 /* AppDelegate.swift in Sources */,
 				74866B17216BFD23007D124E /* ProfilesPresenter.swift in Sources */,
 				74AD02DC216FC0AD00AB117B /* StickInteractor.swift in Sources */,
+				74C5D033217524FD00569378 /* UIBarButtonItem.swift in Sources */,
+				74151E0D21776A9900F00C6A /* Icon.swift in Sources */,
 				74866B12216BEF96007D124E /* CoreDataSource.swift in Sources */,
 				740D0236216ACFE2003B9BA8 /* UIColor.swift in Sources */,
+				74F3E948217752EA0048CB1D /* BarButton.swift in Sources */,
 				740BEB91216D392800F4343A /* AddProfileInteractor.swift in Sources */,
 				748C16252168F6AA009918A5 /* SBrick.swift in Sources */,
 				740F79DA21691D1E00A2D50D /* SBrickCommand.swift in Sources */,
